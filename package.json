@@ -1,0 +1,48 @@
+{
+  "name": "voices-of-hope",
+  "version": "0.8.1",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@types/node": "^13.13.30",
+    "adal-node": "^0.2.1",
+    "aws-sdk": "^2.784.0",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "memory-cache": "^0.2.0",
+    "moment": "^2.29.1",
+    "node-cron": "^2.0.3",
+    "nodemailer": "^6.4.14",
+    "simple-node-logger": "^18.12.24",
+    "util": "^0.12.3",
+    "uuid": "^7.0.3",
+    "vue": "^2.6.12",
+    "vue-router": "^3.4.8",
+    "vuetify": "^2.3.16"
+  },
+  "devDependencies": {
+    "@mdi/js": "^4.9.95",
+    "@vue/cli-plugin-babel": "^3.12.1",
+    "@vue/cli-service": "^3.12.1",
+    "sass": "^1.28.0",
+    "sass-loader": "^7.1.0",
+    "vue-cli-plugin-vuetify": "^0.6.3",
+    "vue-template-compiler": "^2.6.12",
+    "vuetify-loader": "^1.6.0"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
