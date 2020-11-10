@@ -12,8 +12,6 @@ const express = require('express'),
     port = 443,
     bodyParser = require('body-parser');
 
-const log = require('./backend/helpers/logger');
-
 // set up express server
 app.use('/', express.Router());
 app.use(fileUpload({createParentPath: true}));
@@ -22,7 +20,7 @@ app.use(bodyParser.urlencoded({limit: '10mb', extended: true}))
 app.use(express.static('dist'));
 
 const httpsServer = https.createServer({key: privateKey, cert: certificate}, app);
-httpsServer.listen(port, () => log.info(__dirname, 'Running at localhost:' + port));
+httpsServer.listen(port, () => console.log(__dirname, 'Running at localhost:' + port));
 
 // redirect all other requests to index.html
 app.get('/*', (req, res) => res.sendFile(__dirname + '/dist/index.html'));
