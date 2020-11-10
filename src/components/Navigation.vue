@@ -58,10 +58,8 @@
                 <v-img src="/test"></v-img>
               </v-list-item-avatar>
               <v-list-item-content>
-                <v-list-item-title>{{ notification.subject }}</v-list-item-title>
-                <v-list-item-subtitle>
-                  <span>{{ notification.message }}</span>
-                </v-list-item-subtitle>
+                <v-list-item-title>New Notification</v-list-item-title>
+                <v-list-item-subtitle>Here is the new notification...</v-list-item-subtitle>
               </v-list-item-content>
               <v-list-item-action>
                 <v-list-item-action-text
@@ -73,7 +71,7 @@
           <v-list-item class="text-center">
             <v-list-item-content>
               <v-list-item-subtitle>
-                {{ !notifications.length ? 'No notifications' : 'No more notifications' }}
+                No more notifications
               </v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>

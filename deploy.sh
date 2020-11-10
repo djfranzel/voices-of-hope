@@ -1,7 +1,7 @@
 #!/bin/bash
 
-git commit -am 'deploying...'
-git push
+#git commit -am 'deploying...'
+#git push
 
 ssh -i data-bin.pem ec2-user@18.216.107.77 -T <<'ENDSSH'
 
