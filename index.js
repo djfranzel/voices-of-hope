@@ -8,19 +8,20 @@ const express = require('express'),
     privateKey = fs.readFileSync('certs/server.key', 'utf8'),
     certificate = fs.readFileSync('certs/server.crt', 'utf8'),
     app = express(),
-    port = 443,
+    port = 80,
     bodyParser = require('body-parser');
 
 // set up express server
 app.use('/', express.Router());
 app.use(express.static('dist'));
+// var bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded)
+// const httpsServer = https.createServer({key: privateKey, cert: certificate}, app);
+// httpsServer.listen(port, () => console.log(__dirname, 'Running at localhost:' + port));
 
-const httpsServer = https.createServer({key: privateKey, cert: certificate}, app);
-httpsServer.listen(port, () => console.log(__dirname, 'Running at localhost:' + port));
-
-// app.listen(port, () => {
-//     console.log(`Example app listening at http://localhost:${port}`)
-// })
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+})
 
 // redirect all other requests to index.html
 app.get('/*', (req, res) => res.sendFile(__dirname + '/dist/index.html'));
