@@ -1,13 +1,19 @@
 <template>
   <v-app style="height: 100vh">
-    <v-app-bar
-        shrink-on-scroll
-        scroll-target="#scrolling-techniques">
+    <v-app-bar app
+               shrink-on-scroll
+               scroll-target="#scrolling-techniques">
 
-      <v-toolbar-title>Voices of Hope</v-toolbar-title>
+      <v-spacer></v-spacer>
 
-      <div class="">
-        <v-btn class="ma-2" depressed  @click="Navigate('Home')">
+      <v-img src="./assets/voh-logo.png"
+             max-height="95"
+             max-width="95"
+             class="ma-3"
+             alt="Voices of Hope Logo"/>
+
+      <div>
+        <v-btn class="ma-2" depressed @click="Navigate('Home')">
           Home
         </v-btn>
 
@@ -81,27 +87,29 @@
       <v-spacer></v-spacer>
 
       <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
+        <v-icon>mdi-facebook</v-icon>
       </v-btn>
 
       <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
+        <v-icon>mdi-instagram</v-icon>
       </v-btn>
 
       <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
+        <v-icon>mdi-twitter</v-icon>
       </v-btn>
+      <v-spacer></v-spacer>
     </v-app-bar>
 
     <v-sheet id="scrolling-techniques"
-             class="overflow-y-auto"
-             max-height="100vh">
+             class="overflow-y-auto">
       <v-main>
         <v-container>
           <router-view/>
         </v-container>
-        <v-footer>
+        <v-footer class="footer">
+          <v-spacer></v-spacer>
           <p>Voices of Hope - &copy;{{ new Date().getFullYear() }}</p>
+          <v-spacer></v-spacer>
         </v-footer>
       </v-main>
     </v-sheet>
@@ -110,17 +118,15 @@
 </template>
 
 <script>
+
 export default {
   name: 'App',
-  data: () => {
-    return {};
-  },
+  data: () => ({}),
   created: function () {
+
   },
   methods: {
     Navigate: function (page) {
-      // navigate to home page
-      // alert(page)
       this.$router.push({name: page})
     }
   }
@@ -138,5 +144,9 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+.footer {
+  border-top: 1px solid black;
 }
 </style>
