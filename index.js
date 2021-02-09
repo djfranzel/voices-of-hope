@@ -9,7 +9,7 @@ const express = require('express'),
     privateKey = fs.readFileSync('certs/server.key', 'utf8'),
     certificate = fs.readFileSync('certs/server.crt', 'utf8'),
     app = express(),
-    port = 8080,
+    port = 80,
     bodyParser = require('body-parser');
 
 // set up express server
