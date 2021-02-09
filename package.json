@@ -24,9 +24,7 @@
     "uuid": "^7.0.3",
     "vue": "^2.6.12",
     "vue-router": "^3.4.8",
-    "vuetify": "^2.3.16"
-  },
-  "devDependencies": {
+    "vuetify": "^2.3.16",
     "@mdi/js": "^4.9.95",
     "@vue/cli-plugin-babel": "^3.12.1",
     "@vue/cli-service": "^3.12.1",
