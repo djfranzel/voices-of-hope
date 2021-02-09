@@ -1,14 +1,40 @@
 <template>
-  <v-app id="inspire">
-    <Navigation></Navigation>
-    <v-main>
-      <v-container class="pt-5" fluid>
-        <router-view/>
-      </v-container>
-    </v-main>
-    <v-footer app class="text-center blue-grey darken-1 theme--dark">
-      <p class="mb-0 ml-auto mr-auto">Voices of Hope - &copy;{{new Date().getFullYear()}}</p>
-    </v-footer>
+  <v-app style="height: 100vh">
+    <v-app-bar
+        shrink-on-scroll
+        prominent
+        scroll-target="#scrolling-techniques">
+
+      <v-toolbar-title>Voices of Hope</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
+    </v-app-bar>
+
+    <v-sheet id="scrolling-techniques"
+             class="overflow-y-auto"
+             max-height="100vh">
+      <v-main>
+        <v-container>
+          <router-view/>
+        </v-container>
+        <v-footer>
+          <p>Voices of Hope - &copy;{{ new Date().getFullYear() }}</p>
+        </v-footer>
+      </v-main>
+    </v-sheet>
+
   </v-app>
 </template>
 
@@ -31,4 +57,19 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+body {
+  overflow: hidden; /* Hide scrollbars */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+</style>

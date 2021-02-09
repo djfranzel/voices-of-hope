@@ -3,7 +3,6 @@ require('dotenv').config();
 
 // server config
 const express = require('express'),
-    fileUpload = require('express-fileupload'),
     https = require('https'),
     fs = require('fs'),
     privateKey = fs.readFileSync('certs/server.key', 'utf8'),

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="min-height: 100vh">
     <h1>Voices of Hope!!</h1>
   </div>
 </template>
@@ -17,9 +17,7 @@ export default Vue.extend({
   created: function () {
 
   },
-  methods: {
-
-  }
+  methods: {}
 });
 </script>
 

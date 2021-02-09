@@ -1,111 +1,39 @@
 <template>
-  <div>
-    <v-app-bar app clipped-left color="blue-grey darken-1" dark clipped-right>
-      <v-app-bar-nav-icon @click.stop="toggleDrawer = !toggleDrawer" title="Toggle Side Bar"></v-app-bar-nav-icon>
-      <v-icon class="mx-4" large>
-        mdi-account-multiple
-      </v-icon>
-      <v-toolbar-title><b>HR Portal</b></v-toolbar-title>
-      <div class="flex-grow-1"></div>
+  <v-card class="overflow-hidden">
+    <v-app-bar
+        absolute
+        color="indigo darken-2"
+        dark
+        shrink-on-scroll
+        prominent
+        scroll-target="#scrolling-techniques"
+    >
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-menu offset-y :close-on-content-click="false">
-        <template v-slot:activator="{ on, attrs }">
-          <v-badge
-              :content="1"
-              :value="1"
-              color="red" overlap offset-x="27px" offset-y="16px">
-            <v-btn v-bind="attrs"
-                   v-on="on"
-                   large
-                   icon
-                   class="mr-3">
-              <v-icon>mdi-bell-ring</v-icon>
-            </v-btn>
-          </v-badge>
-        </template>
-        <v-list three-line class="notification-menu">
-          <v-list-item style="min-height: unset">
-            <v-list-item-content>
-              <v-list-item-title class="title">Notifications</v-list-item-title>
-            </v-list-item-content>
-            <v-list-item-action>
-              <v-menu offset-y>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn icon
-                         v-bind="attrs"
-                         v-on="on">
-                    <v-icon>mdi-dots-vertical</v-icon>
-                  </v-btn>
-                </template>
-                <v-list class="pa-0">
-                  <v-list-item class="pl-0 pr-0">
-                    <v-btn text
-                           tile
-                           class="pl-7 pr-7"
-                           @click="">
-                      <v-icon left>mdi-check</v-icon>
-                      Mark all as read
-                    </v-btn>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </v-list-item-action>
-          </v-list-item>
-          <v-divider></v-divider>
-          <template>
-            <v-list-item v-ripple class="cursor-hover">
-              <v-list-item-avatar>
-                <v-img src="/test"></v-img>
-              </v-list-item-avatar>
-              <v-list-item-content>
-                <v-list-item-title>New Notification</v-list-item-title>
-                <v-list-item-subtitle>Here is the new notification...</v-list-item-subtitle>
-              </v-list-item-content>
-              <v-list-item-action>
-                <v-list-item-action-text
-                    text="Nov 11, 2020"></v-list-item-action-text>
-              </v-list-item-action>
-            </v-list-item>
-            <v-divider></v-divider>
-          </template>
-          <v-list-item class="text-center">
-            <v-list-item-content>
-              <v-list-item-subtitle>
-                No more notifications
-              </v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+      <v-toolbar-title>Title</v-toolbar-title>
 
-      <v-tooltip bottom>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn v-bind="attrs"
-                 v-on="on" icon large class="mr-1">
-            <v-icon>mdi-logout-variant</v-icon>
-          </v-btn>
-        </template>
-        <span>Logout</span>
-      </v-tooltip>
+      <v-spacer></v-spacer>
 
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
     </v-app-bar>
-
-    <v-navigation-drawer v-model="rightSideFilter" app clipped right></v-navigation-drawer>
-
-    <v-navigation-drawer app clipped v-model="toggleDrawer">
-      <v-list>
-        <v-list-item link>
-          <v-list-item-action>
-            <v-icon>mdi-format-list-bulleted-square</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Employee List</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-
-  </div>
+    <v-sheet
+        id="scrolling-techniques"
+        class="overflow-y-auto"
+        max-height="600"
+    >
+      <v-container style="height: 1000px;"></v-container>
+    </v-sheet>
+  </v-card>
 </template>
 
 <script>
