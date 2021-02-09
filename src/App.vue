@@ -39,15 +39,11 @@
 </template>
 
 <script>
-import Navigation from './components/Navigation';
 import axios from 'axios';
 import {EventBus} from './event-bus.js';
 
 export default {
   name: 'App',
-  components: {
-    Navigation
-  },
   data: () => {
     return {};
   },
@@ -58,9 +54,9 @@ export default {
 </script>
 
 <style>
-body {
-  overflow: hidden; /* Hide scrollbars */
-}
+/*body {*/
+/*  overflow: hidden; !* Hide scrollbars *!*/
+/*}*/
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
