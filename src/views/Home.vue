@@ -1,6 +1,10 @@
 <template>
   <div style="min-height: 100vh">
-    <h1>Voices of Hope!!</h1>
+    <v-carousel cycle>
+      <v-carousel-item src="../assets/cantus_collab_1.jpg"></v-carousel-item>
+      <v-carousel-item src="../assets/cantus_collab_2.jpg"></v-carousel-item>
+      <v-carousel-item src="../assets/amanda_headshot.jpg"></v-carousel-item>
+    </v-carousel>
   </div>
 </template>
 
@@ -11,9 +15,9 @@ import axios from "axios";
 
 export default Vue.extend({
   name: 'Home',
-  data: () => {
-    return {}
-  },
+  data: () => ({
+    items: ['../assets/cantus_collab_1','../assets/cantus_collab_2','']
+  }),
   created: function () {
 
   },
