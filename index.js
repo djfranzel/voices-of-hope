@@ -14,8 +14,9 @@ const express = require('express'),
 // set up express server
 app.use('/', express.Router());
 app.use(express.static('dist'));
+app.use(express.urlencoded())
 // var bodyParser = require('body-parser')
-app.use(bodyParser.urlencoded)
+// const urlencodedParser = bodyParser.urlencoded({ extended: false })
 // const httpsServer = https.createServer({key: privateKey, cert: certificate}, app);
 // httpsServer.listen(port, () => console.log(__dirname, 'Running at localhost:' + port));
 
