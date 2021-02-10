@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#npm run build
-git commit -am 'building dist'
-git push
-
 ssh -i voices-of-hope.pem ec2-user@3.21.15.203 -T <<'ENDSSH'
 
   sudo su -
@@ -12,6 +8,7 @@ ssh -i voices-of-hope.pem ec2-user@3.21.15.203 -T <<'ENDSSH'
   git pull
   git reset --hard origin/master
   npm install
+  npm run build
   forever start index.js
 
 ENDSSH

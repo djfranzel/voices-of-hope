@@ -25,4 +25,4 @@ app.listen(port, () => {
 })
 
 // redirect all other requests to index.html
-// app.get('/*', (req, res) => res.sendFile(__dirname + '/dist/index.html'));
+app.get('/*', (req, res) => res.sendFile(__dirname + '/dist/index.html'));
