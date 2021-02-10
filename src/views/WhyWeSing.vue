@@ -1,12 +1,12 @@
 <template>
   <div class="page-container">
     <h1 class="page-title">Why We Sing</h1>
-    <v-row>
-      <v-col cols="6">
-        <p>"Voices of Hope is a Minnesota based nonprofit that hopes to provide accessible music-making opportunities within
-          justice-involved populations that foster individual growth and bridge unlikely communities through song."</p>
-      </v-col>
-    </v-row>
+    <h2>Benefits of Choral Singing</h2>
+    <p></p>
+    <h2>Choral Singing and Incarceration</h2>
+    <p></p>
+    <h2>Testimonials</h2>
+    <p></p>
   </div>
 </template>
 
