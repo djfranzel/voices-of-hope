@@ -1,5 +1,5 @@
 <template>
-  <div style="min-height: 100vh">
+  <div class="page-container">
     <h1>Mission</h1>
     <p>To provide accessible music-making opportunities within justice-involved populations that foster individual growth and bridge unlikely communities through song.
 

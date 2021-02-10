@@ -3,17 +3,13 @@ import App from './App.vue';
 import Vuetify from 'vuetify/lib';
 import Router from 'vue-router';
 import Home from "./views/Home";
-import MissionAndHopes from "./views/MissionAndHopes";
-import History from "./views/History";
-import Choirs from "./views/Choirs";
-import BoardsAndStaff from "./views/BoardsAndStaff";
-import BenefitsOfChoralSinging from "./views/BenefitsOfChoralSinging";
-import ChoralSingingAndIncarceration from "./views/ChoralSingingAndIncarceration";
-import Testimonials from "./views/Testimonials";
+import WhoWeAre from "@/views/WhoWeAre";
+import WhyWeSing from "./views/WhyWeSing";
 import SupportVoicesOfHope from "./views/SupportVoicesOfHope";
 import SingWithVoicesOfHope from "./views/SingWithVoicesOfHope";
 import LearnAndAdvocate from "./views/LearnAndAdvocate";
 import Contact from "./views/Contact";
+import NotFound from "./views/NotFound";
 
 Vue.use(Vuetify);
 Vue.use(Router);
@@ -29,40 +25,17 @@ const router = new Router({
             component: Home
         },
         {
-            path: '/mission-and-hopes',
-            name: 'MissionAndHopes',
-            component: MissionAndHopes
+            path: '/who-we-are',
+            name: 'WhoWeAre',
+            component: WhoWeAre
         },
         {
-            path: '/history',
-            name: 'History',
-            component: History
+            path: '/why-we-sing',
+            name: 'WhyWeSing',
+            component: WhyWeSing
         },
-        {
-            path: '/choirs',
-            name: 'Choirs',
-            component: Choirs
-        },
-        {
-            path: '/boards-and-staff',
-            name: 'BoardsAndStaff',
-            component: BoardsAndStaff
-        },
-        {
-            path: '/benefits-of-choral-singing',
-            name: 'BenefitsOfChoralSinging',
-            component: BenefitsOfChoralSinging
-        },
-        {
-            path: '/choral-singing-and-incarceration',
-            name: 'ChoralSingingAndIncarceration',
-            component: ChoralSingingAndIncarceration
-        },
-        {
-            path: '/testimonials',
-            name: 'Testimonials',
-            component: Testimonials
-        },
+
+        // for the last nav dropdown
         {
             path: '/support-voices-of-hope',
             name: 'SupportVoicesOfHope',
@@ -85,8 +58,8 @@ const router = new Router({
         },
         {
             path: '/*',
-            name: 'home',
-            component: Home
+            name: 'NotFound',
+            component: NotFound
         }
     ]
 });

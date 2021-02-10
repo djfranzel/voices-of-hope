@@ -1,6 +1,6 @@
 <template>
   <div class="page-container">
-    <h1 class="page-title">Sing With Voices of Hope</h1>
+    <h1 class="page-title">Why We Sing</h1>
     <v-row>
       <v-col cols="6">
         <p>"Voices of Hope is a Minnesota based nonprofit that hopes to provide accessible music-making opportunities within
@@ -12,14 +12,10 @@
 
 <script lang="js">
 import Vue from 'vue';
-import {EventBus} from '../event-bus';
-import axios from "axios";
 
 export default Vue.extend({
-  name: 'SingWithVoicesOfHope',
-  data: () => {
-    return {}
-  },
+  name: 'WhyWeSing',
+  data: () => ({}),
   created: function () {
 
   },
