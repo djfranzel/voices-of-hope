@@ -1,5 +1,5 @@
 <template>
-  <div style="min-height: 100vh">
+  <div style="min-height: calc(100vh - 128px);">
     <h1>Voices of Hope</h1>
     <h2>Minnesota Prison Music Initiative</h2>
     <v-carousel cycle>
