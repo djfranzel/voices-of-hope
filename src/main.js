@@ -15,7 +15,26 @@ import PhenomenalWomanProject from "./views/PhenomenalWomanProject";
 Vue.use(Vuetify);
 Vue.use(Router);
 
-const vuetify = new Vuetify({icons: {iconfont: 'mdi'}})
+const vuetify = new Vuetify(
+    {
+        icons: {
+            iconfont: 'mdi'
+        },
+        theme: {
+            themes: {
+                light: {
+                    primary: '#2196f3',
+                    secondary: '#009688',
+                    accent: '#f44336',
+                    error: '#ff5722',
+                    warning: '#ffeb3b',
+                    info: '#607d8b',
+                    success: '#4caf50'
+                },
+            },
+        }
+    }
+)
 
 const router = new Router({
     mode: 'history',

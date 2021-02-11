@@ -169,7 +169,7 @@ export default {
     CurrentPage: function (name) {
       if (name === 'JoinOurSong') {
         const route = this.$router.currentRoute.name;
-        return route === 'SupportVoicesOfHope' || route === 'SingWithVoicesOfHope' || route === 'LearnAndAdvocate';
+        return route === 'SupportVoicesOfHope' || route === 'SingWithVoicesOfHope' || route === 'LearnAndAdvocate' || route === 'PhenomenalWomanProject';
       } else {
         return this.$router.currentRoute.name === name;
       }
@@ -179,6 +179,8 @@ export default {
 </script>
 
 <style>
+
+@import "reset.css";
 
 .logo-container > h2 {
   font-family: 'Merriweather', serif;
@@ -212,10 +214,11 @@ export default {
   display: block;
   width: 100px;
   padding-top: 10px;
-  border-bottom: 2px dotted #72c02c;
+  border-bottom: 2px dotted #4caf50;
 }
 
 .active-list-item {
   background: #f5f5f5;
 }
+
 </style>
