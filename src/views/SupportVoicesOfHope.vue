@@ -1,9 +1,12 @@
 <template>
   <div class="page-container">
-    <h1 class="page-title">Support Voices of Hope</h1>
-    <v-btn @click="NavigateTo()" color="red" style="color: white">
-      <v-icon left>mdi-currency-usd</v-icon>
+    <h1 class="page-title text-center">Support Voices of Hope</h1>
+    <v-divider class="mb-7"></v-divider>
+    <p>We are currently accepting donations through our page at GiveMN.</p>
+    <v-btn color="red" style="color: white"
+           @click="NavigateToUrl('https://www.givemn.org/story/Voicesofhope')">
       Donate
+      <v-icon right>mdi-open-in-new</v-icon>
     </v-btn>
   </div>
 </template>
@@ -22,8 +25,8 @@ export default Vue.extend({
 
   },
   methods: {
-    NavigateTo: function () {
-      window.open('https://www.givemn.org/story/Voicesofhope', '_blank')
+    NavigateToUrl: function (url) {
+      window.open(url, '_blank')
     }
   }
 });

@@ -1,6 +1,7 @@
 <template>
   <div class="page-container">
-    <h1 class="page-title">Contact</h1>
+    <h1 class="page-title text-center">Contact</h1>
+    <v-divider class="mb-7"></v-divider>
 
     <v-row>
       <v-col cols="6">

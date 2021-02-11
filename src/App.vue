@@ -30,38 +30,42 @@
             </v-btn>
           </v-row>
           <v-row>
-            <v-btn class="ma-2 ml-auto" depressed @click="Navigate('Home')">
+            <v-btn :class="{'mr-2': true, 'mt-2': true, 'ml-auto': true, 'white': !CurrentPage('Home')}" depressed
+                   @click="Navigate('Home')">
               Home
             </v-btn>
-            <v-btn class="ma-2" depressed @click="Navigate('WhoWeAre')">
+            <v-btn :class="{'mr-2': true, 'mt-2': true, 'white': !CurrentPage('WhoWeAre')}" depressed
+                   @click="Navigate('WhoWeAre')">
               Who We Are
             </v-btn>
-            <v-btn class="ma-2" depressed @click="Navigate('WhyWeSing')">
+            <v-btn :class="{'mr-2': true, 'mt-2': true, 'white': !CurrentPage('WhyWeSing')}" depressed
+                   @click="Navigate('WhyWeSing')">
               Why We Sing
             </v-btn>
 
             <v-menu offset-y>
               <template v-slot:activator="{ on, attrs }">
-                <v-btn v-bind="attrs" v-on="on" class="ma-2 mr-0" depressed>
+                <v-btn v-bind="attrs" v-on="on" :class="{'mr-2': true, 'mt-2': true, 'white': !CurrentPage('JoinOurSong')}" depressed>
                   Join Our Song
                   <v-icon right>mdi-chevron-down</v-icon>
                 </v-btn>
               </template>
               <v-list>
-                <v-list-item @click="Navigate('SupportVoicesOfHope')">
+                <v-list-item :class="{'active-list-item': CurrentPage('SupportVoicesOfHope')}" @click="Navigate('SupportVoicesOfHope')">
                   <v-list-item-title>Support Voices of Hope</v-list-item-title>
                 </v-list-item>
-                <v-list-item @click="Navigate('SingWithVoicesOfHope')">
+                <v-list-item :class="{'active-list-item': CurrentPage('SingWithVoicesOfHope')}" @click="Navigate('SingWithVoicesOfHope')">
                   <v-list-item-title>Sing With Voices of Hope</v-list-item-title>
                 </v-list-item>
-                <v-list-item @click="Navigate('LearnAndAdvocate')">
+                <v-list-item :class="{'active-list-item': CurrentPage('LearnAndAdvocate')}" @click="Navigate('LearnAndAdvocate')">
                   <v-list-item-title>Learn & Advocate</v-list-item-title>
-                </v-list-item>
-                <v-list-item @click="Navigate('Contact')">
-                  <v-list-item-title>Contact</v-list-item-title>
                 </v-list-item>
               </v-list>
             </v-menu>
+            <v-btn :class="{'mt-2': true, 'white': !CurrentPage('Contact')}" depressed
+                   @click="Navigate('Contact')">
+              Contact
+            </v-btn>
           </v-row>
         </v-col>
       </v-row>
@@ -69,10 +73,10 @@
     </v-app-bar>
 
     <div style="margin-top: 128px">
-      <v-container>
+      <v-container class="mb-0 pb-0">
         <router-view/>
       </v-container>
-      <v-footer outlined padless class="footer">
+      <v-footer outlined padless class="footer ma-0">
         <v-container class="pa-0">
           <v-row class="pa-0 ma-1">
             <v-col cols="6">
@@ -163,23 +167,21 @@ export default {
     },
     NavigateToUrl: function (url) {
       window.open(url, '_blank')
+    },
+    CurrentPage: function (name) {
+      if (name === 'JoinOurSong') {
+        const route = this.$router.currentRoute.name;
+        return route === 'SupportVoicesOfHope' || route === 'SingWithVoicesOfHope' || route === 'LearnAndAdvocate';
+      }
+      else {
+        return this.$router.currentRoute.name === name;
+      }
     }
   }
 };
 </script>
 
 <style>
-
-/*!* Hide scrollbar for Chrome, Safari and Opera *!*/
-/*body::-webkit-scrollbar {*/
-/*  display: none;*/
-/*}*/
-
-/*!* Hide scrollbar for IE, Edge and Firefox *!*/
-/*body {*/
-/*  -ms-overflow-style: none; !* IE and Edge *!*/
-/*  scrollbar-width: none; !* Firefox *!*/
-/*}*/
 
 .footer {
   border-top: 1px solid black;
@@ -191,12 +193,11 @@ export default {
 
 .page-container {
   min-height: calc(100vh - 128px - 283px);
-  padding-bottom: 32px;
   padding-top: 32px;
 }
 
 .page-title {
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 
 .footer-title:after {
@@ -205,5 +206,9 @@ export default {
   width: 100px;
   padding-top: 10px;
   border-bottom: 2px dotted #72c02c;
+}
+
+.active-list-item {
+  background: #f5f5f5;
 }
 </style>
