@@ -1,6 +1,10 @@
 <template>
   <div class="page-container">
     <h1 class="page-title">Support Voices of Hope</h1>
+    <v-btn @click="NavigateTo()" color="red" style="color: white">
+      <v-icon left>mdi-currency-usd</v-icon>
+      Donate
+    </v-btn>
   </div>
 </template>
 
@@ -17,7 +21,11 @@ export default Vue.extend({
   created: function () {
 
   },
-  methods: {}
+  methods: {
+    NavigateTo: function () {
+      window.open('https://www.givemn.org/story/Voicesofhope', '_blank')
+    }
+  }
 });
 </script>
 
