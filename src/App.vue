@@ -5,14 +5,14 @@
                color="white">
       <v-spacer></v-spacer>
       <v-row no-gutters>
-        <v-col cols="5">
+        <v-col cols="5" class="logo-container">
           <v-img src="./assets/voh-logo.png"
                  style="float:left"
                  max-height="95"
                  max-width="95"
                  class="ma-3 ml-0"
                  alt="Voices of Hope Logo"/>
-          <h2 class="mt-6">Voices of Hope</h2>
+          <h2 class="mt-7">Voices of Hope</h2>
           <h3>Minnesota Prison Music Initiative</h3>
         </v-col>
         <v-col cols="7">
@@ -84,7 +84,8 @@
               <p>Voices of Hope is a Minnesota based nonprofit that hopes to provide accessible music-making
                 opportunities within justice-involved populations that foster individual growth and bridge
                 unlikely communities through song.</p>
-              <v-btn icon class="mr-2">
+              <p><a href="https://amandakateweber.com/voices-of-hope/" target="_blank">Amanda Weber's Blog</a></p>
+              <v-btn @click="NavigateToUrl('https://www.facebook.com/wearevoicesofhope/')" icon class="mr-2">
                 <v-icon>mdi-facebook</v-icon>
               </v-btn>
 
@@ -182,6 +183,16 @@ export default {
 </script>
 
 <style>
+
+.logo-container>h2 {
+  font-family: 'Merriweather', serif;
+  letter-spacing: 2px;
+}
+
+.logo-container>h3 {
+  font-family: 'Merriweather', serif;
+  letter-spacing: 2px;
+}
 
 .footer {
   border-top: 1px solid black;
