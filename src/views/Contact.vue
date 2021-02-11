@@ -33,6 +33,7 @@
               class="mr-4"
               @click="validate">
             Submit
+            <v-icon right>mdi-send</v-icon>
           </v-btn>
         </v-form>
       </v-col>

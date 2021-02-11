@@ -6,7 +6,7 @@
       <v-spacer></v-spacer>
       <v-row no-gutters>
         <v-col cols="5" class="logo-container">
-          <v-img src="./static/voh-logo.png"
+          <v-img src="./static/voh_logo.png"
                  style="float:left"
                  max-height="95"
                  max-width="95"
