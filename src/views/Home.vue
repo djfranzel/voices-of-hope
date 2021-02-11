@@ -19,7 +19,7 @@
             </v-btn>
           </v-col>
           <v-col cols="6">
-            <v-img class="elevation-5" src="../assets/amanda_headshot.jpg"></v-img>
+            <v-img class="elevation-5" src="../static/amanda_headshot.jpg"></v-img>
           </v-col>
         </v-row>
         <v-divider class="mt-7 mb-7"></v-divider>

@@ -23,13 +23,13 @@
         </ol>
       </v-col>
       <v-col cols="6">
-        <v-img class="elevation-5" src="../assets/cantus_collab_1.jpg"/>
+        <v-img class="elevation-5" src="../static/cantus_collab_1.jpg"/>
       </v-col>
     </v-row>
     <v-divider class="mt-3 mb-3"></v-divider>
     <v-row>
       <v-col cols="6">
-        <v-img class="elevation-5" src="../assets/cantus_collab_2.jpg"/>
+        <v-img class="elevation-5" src="../static/cantus_collab_2.jpg"/>
       </v-col>
       <v-col cols="6">
         <h2>History</h2>
@@ -65,21 +65,21 @@
         <v-row>
           <v-col cols="4">
             <v-card elevation="3">
-              <v-img src="../assets/amanda_headshot.jpg"></v-img>
+              <v-img src="../static/amanda_headshot.jpg"></v-img>
               <v-card-title>Amanda Weber</v-card-title>
               <v-card-subtitle>(short bio...)</v-card-subtitle>
             </v-card>
           </v-col>
           <v-col cols="4">
             <v-card elevation="3">
-              <v-img src="../assets/amanda_headshot.jpg"></v-img>
+              <v-img src="../static/amanda_headshot.jpg"></v-img>
               <v-card-title>Brittany Kallman Arneson</v-card-title>
               <v-card-subtitle>(short bio...)</v-card-subtitle>
             </v-card>
           </v-col>
           <v-col cols="4">
             <v-card elevation="3">
-              <v-img src="../assets/amanda_headshot.jpg"></v-img>
+              <v-img src="../static/amanda_headshot.jpg"></v-img>
               <v-card-title>Marylynn Mennicke</v-card-title>
               <v-card-subtitle>(short bio...)</v-card-subtitle>
             </v-card>

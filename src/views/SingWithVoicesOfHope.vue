@@ -5,7 +5,7 @@
     <v-row>
       <v-spacer></v-spacer>
       <v-col cols="6">
-        <v-img src="../assets/join_voices_of_hope.jpg"></v-img>
+        <v-img src="../static/join_voices_of_hope.jpg"></v-img>
       </v-col>
       <v-spacer></v-spacer>
     </v-row>
