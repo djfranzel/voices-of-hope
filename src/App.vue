@@ -45,19 +45,27 @@
 
             <v-menu offset-y>
               <template v-slot:activator="{ on, attrs }">
-                <v-btn v-bind="attrs" v-on="on" :class="{'mr-2': true, 'mt-2': true, 'white': !CurrentPage('JoinOurSong')}" depressed>
+                <v-btn v-bind="attrs" v-on="on"
+                       :class="{'mr-2': true, 'mt-2': true, 'white': !CurrentPage('JoinOurSong')}" depressed>
                   Join Our Song
                   <v-icon right>mdi-chevron-down</v-icon>
                 </v-btn>
               </template>
               <v-list>
-                <v-list-item :class="{'active-list-item': CurrentPage('SupportVoicesOfHope')}" @click="Navigate('SupportVoicesOfHope')">
+                <v-list-item :class="{'active-list-item': CurrentPage('SupportVoicesOfHope')}"
+                             @click="Navigate('SupportVoicesOfHope')">
                   <v-list-item-title>Support Voices of Hope</v-list-item-title>
                 </v-list-item>
-                <v-list-item :class="{'active-list-item': CurrentPage('SingWithVoicesOfHope')}" @click="Navigate('SingWithVoicesOfHope')">
+                <v-list-item :class="{'active-list-item': CurrentPage('SingWithVoicesOfHope')}"
+                             @click="Navigate('SingWithVoicesOfHope')">
                   <v-list-item-title>Sing With Voices of Hope</v-list-item-title>
                 </v-list-item>
-                <v-list-item :class="{'active-list-item': CurrentPage('LearnAndAdvocate')}" @click="Navigate('LearnAndAdvocate')">
+                <v-list-item :class="{'active-list-item': CurrentPage('PhenomenalWomanProject')}"
+                             @click="Navigate('PhenomenalWomanProject')">
+                  <v-list-item-title>Phenomenal Woman Project</v-list-item-title>
+                </v-list-item>
+                <v-list-item :class="{'active-list-item': CurrentPage('LearnAndAdvocate')}"
+                             @click="Navigate('LearnAndAdvocate')">
                   <v-list-item-title>Learn & Advocate</v-list-item-title>
                 </v-list-item>
               </v-list>
@@ -81,10 +89,8 @@
           <v-row class="pa-0 ma-1">
             <v-col cols="6">
               <h3 class="mb-5 footer-title">ABOUT VOICES OF HOPE</h3>
-              <p>Voices of Hope is a Minnesota based nonprofit that hopes to provide accessible music-making
-                opportunities within justice-involved populations that foster individual growth and bridge
-                unlikely communities through song.</p>
-              <p><a href="https://amandakateweber.com/voices-of-hope/" target="_blank">Amanda Weber's Blog</a></p>
+              <p>The <b>Voices of Hope</b> is a women’s prison choir at the Minnesota Correctional Facility in Shakopee, MN.
+                The choir was founded in October 2015 by Amanda Weber and rehearses weekly at the prison.</p>
               <v-btn @click="NavigateToUrl('https://www.facebook.com/wearevoicesofhope/')" icon class="mr-2">
                 <v-icon>mdi-facebook</v-icon>
               </v-btn>
@@ -98,31 +104,22 @@
               </v-btn>
             </v-col>
             <v-col cols="3">
-              <h3 class="mb-5 footer-title">USEFUL LINKS</h3>
-              <v-btn depressed small @click="Navigate('Home')">
-                <v-icon small left>mdi-link</v-icon>
-                Home
-              </v-btn>
-              <br>
-              <v-btn depressed small @click="Navigate('WhoWeAre')">
-                <v-icon small left>mdi-link</v-icon>
-                Who We Are
-              </v-btn>
-              <br>
-              <v-btn depressed small @click="Navigate('WhyWeSing')">
-                <v-icon small left>mdi-link</v-icon>
-                Why We Sing
-              </v-btn>
-              <br>
-              <v-btn depressed small @click="Navigate('SupportVoicesOfHope')">
-                <v-icon small left>mdi-link</v-icon>
-                Support Voices of Hope
-              </v-btn>
-              <br>
-              <v-btn depressed small @click="Navigate('Contact')">
-                <v-icon small left>mdi-link</v-icon>
-                Contact
-              </v-btn>
+              <h3 class="mb-5 footer-title">EXTERNAL LINKS</h3>
+              <ul>
+                <li>
+                  <a href="https://amandakateweber.com/voices-of-hope/" target="_blank">Amanda Weber's Blog</a>
+                </li>
+                <li>
+                  <a href="https://springboardforthearts.org/incubator-program/voices-of-hope/" target="_blank">SpringBoard
+                    for the Arts</a>
+                </li>
+                <li>
+                  <a href="https://www.givemn.org/story/Voicesofhope" target="_blank">GiveMN Page</a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/watch?v=2H4qyOG13fc" target="_blank">Amanda's TEDx Talk</a>
+                </li>
+              </ul>
 
             </v-col>
             <v-col cols="3">
@@ -134,11 +131,11 @@
               </div>
               <div class="mb-1">
                 <v-icon small class="mr-2">mdi-phone</v-icon>
-                <a style="color: rgba(0, 0, 0, 0.87)" href="tel:1234567890">(123) 456-7890</a>
+                <a href="tel:1234567890">(123) 456-7890</a>
               </div>
               <div class="mb-1">
                 <v-icon small class="mr-2">mdi-email</v-icon>
-                <a style="color: rgba(0, 0, 0, 0.87)" href="mailto:wearevoicesofhope@gmail.com">wearevoicesofhope@gmail.com</a>
+                <a href="mailto:wearevoicesofhope@gmail.com">wearevoicesofhope@gmail.com</a>
               </div>
             </v-col>
           </v-row>
@@ -173,8 +170,7 @@ export default {
       if (name === 'JoinOurSong') {
         const route = this.$router.currentRoute.name;
         return route === 'SupportVoicesOfHope' || route === 'SingWithVoicesOfHope' || route === 'LearnAndAdvocate';
-      }
-      else {
+      } else {
         return this.$router.currentRoute.name === name;
       }
     }
@@ -184,12 +180,12 @@ export default {
 
 <style>
 
-.logo-container>h2 {
+.logo-container > h2 {
   font-family: 'Merriweather', serif;
   letter-spacing: 2px;
 }
 
-.logo-container>h3 {
+.logo-container > h3 {
   font-family: 'Merriweather', serif;
   letter-spacing: 2px;
 }

@@ -10,6 +10,7 @@ import SingWithVoicesOfHope from "./views/SingWithVoicesOfHope";
 import LearnAndAdvocate from "./views/LearnAndAdvocate";
 import Contact from "./views/Contact";
 import NotFound from "./views/NotFound";
+import PhenomenalWomanProject from "./views/PhenomenalWomanProject";
 
 Vue.use(Vuetify);
 Vue.use(Router);
@@ -45,6 +46,11 @@ const router = new Router({
             path: '/sing-with-voices-of-hope',
             name: 'SingWithVoicesOfHope',
             component: SingWithVoicesOfHope
+        },
+        {
+            path: '/phenomenal-woman-project',
+            name: 'PhenomenalWomanProject',
+            component: PhenomenalWomanProject
         },
         {
             path: '/learn-and-advocate',
