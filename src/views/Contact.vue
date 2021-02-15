@@ -28,7 +28,8 @@
               required/>
           <br>
           <v-btn
-              :disabled="!valid"
+              :loading="sending"
+              :disabled="!valid || sending"
               color="success"
               class="mr-4"
               @click="validate">
@@ -53,6 +54,7 @@ export default Vue.extend({
   name: 'Contact',
   data: () => ({
     valid: true,
+    sending: false,
     nameRules: [
       v => !!v || 'Name is required',
       v => (v && v.length <= 100) || 'Name must be less than 100 characters',
@@ -77,12 +79,11 @@ export default Vue.extend({
   methods: {
     validate() {
       if (this.$refs.form.validate()) {
-        // make the post to the backend here
-        // alert(JSON.stringify(this.form))
         this.PostMessage()
       }
     },
     PostMessage() {
+      this.sending = true;
       const that = this;
       console.log(this.form);
       axios
@@ -92,6 +93,9 @@ export default Vue.extend({
           })
           .catch(error => {
             EventBus.$emit('snackbar', true, 'error', error)
+          })
+          .finally(() => {
+            that.sending = false
           })
     },
     showToast(message, type) {
