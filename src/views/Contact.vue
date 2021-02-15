@@ -84,7 +84,8 @@ export default Vue.extend({
     },
     PostMessage() {
       const that = this;
-      axios.post('/post-message', that.form)
+      axios
+          .post('/post-message', that.form)
           .then(response => {
             EventBus.$emit('snackbar', true, 'success', 'Message sent!')
           })
