@@ -27,13 +27,13 @@
           <v-col>
             <h2>Testimonials</h2>
             <blockquote class="blockquote">
-              "Voices of Hope helped to keep my spirit alive while incarcerated. Thank you!"
+              "<b>Voices of Hope</b> helped to keep my spirit alive while incarcerated. Thank you!"
             </blockquote>
             <blockquote class="blockquote">
               "It was such a great opportunity to learn to sing while I was incarcerated"
             </blockquote>
             <blockquote class="blockquote">
-              "Voices of Hope is a fantastic organization doing amazing work in our prison systems."
+              "<b>Voices of Hope</b> is a fantastic organization doing amazing work in our prison systems."
             </blockquote>
           </v-col>
         </v-row>
@@ -78,7 +78,7 @@
         <v-row>
           <v-col>
             <h3 class="mb-2">Support Voices of Hope:</h3>
-            <p>Voices of Hope a Minnesota-based nonprofit. If you would like to support the music program at
+            <p><b>Voices of Hope</b> a Minnesota-based nonprofit. If you would like to support the music program at
               Shakopee, please consider making a donation through our GiveMN page.</p>
             <v-btn block class="accent" @click="NavigateToUrl('https://www.givemn.org/story/Voicesofhope')">
               Donate

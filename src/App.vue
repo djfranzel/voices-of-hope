@@ -148,16 +148,38 @@
         </v-container>
       </v-footer>
     </div>
+    <v-snackbar v-model="notification.snackbar"
+                bottom
+                right
+                :color="notification.color"
+                :timeout="notification.timeout">
+      <v-row>
+        <v-col cols="auto" class="mr-auto">
+          {{ notification.text }}
+        </v-col>
+        <v-col cols="auto">
+          <v-icon dark @click="notification.snackbar = false">mdi-close</v-icon>
+        </v-col>
+      </v-row>
+    </v-snackbar>
   </v-app>
 </template>
 
 <script>
+import {EventBus} from './event-bus.js';
 
 export default {
   name: 'App',
-  data: () => ({}),
+  data: () => ({
+    notification: {
+      color: '',
+      snackbar: false,
+      text: '',
+      timeout: 10000,
+    }
+  }),
   created: function () {
-
+    EventBus.$on('snackbar', (snackbar, color, text) => this.SetSnackbar(snackbar, color, text));
   },
   methods: {
     Navigate: function (page) {
@@ -173,6 +195,11 @@ export default {
       } else {
         return this.$router.currentRoute.name === name;
       }
+    },
+    SetSnackbar: function (snackbar, color, text) {
+      this.notification.snackbar = snackbar;
+      this.notification.color = color;
+      this.notification.text = text;
     }
   }
 };

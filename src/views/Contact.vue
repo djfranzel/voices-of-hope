@@ -78,14 +78,22 @@ export default Vue.extend({
     validate() {
       if (this.$refs.form.validate()) {
         // make the post to the backend here
-        alert(JSON.stringify(this.form))
+        // alert(JSON.stringify(this.form))
+        this.PostMessage()
       }
     },
-    reset() {
-      this.$refs.form.reset()
+    PostMessage() {
+      const that = this;
+      axios.post('/post-message', that.form)
+          .then(response => {
+            EventBus.$emit('snackbar', true, 'success', 'Message sent!')
+          })
+          .catch(error => {
+            EventBus.$emit('snackbar', true, 'error', error)
+          })
     },
-    resetValidation() {
-      this.$refs.form.resetValidation()
+    showToast(message, type) {
+
     },
   },
 });
