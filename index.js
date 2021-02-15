@@ -13,6 +13,7 @@ const express = require('express'),
 // set up express server
 app.use('/', express.Router());
 app.use(express.static('dist'));
+app.use(bodyParser.json())
 // app.use(express.urlencoded())
 
 // https server configuration
