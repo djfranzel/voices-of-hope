@@ -27,7 +27,8 @@ app.post('/post-message', async (req, res) => {
     await publishToTopic(topicArn, JSON.stringify(req.body))
         .then(response => {
             res.send(response)
-        }).catch(error => {
+        })
+        .catch(error => {
             res.send(error)
         })
 })
