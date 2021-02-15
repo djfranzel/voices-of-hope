@@ -24,7 +24,12 @@ app.listen(port, () => {
 })
 
 app.post('/post-message', async (req, res) => {
-    res.send(await publishToTopic(topicArn, JSON.stringify(req.body)))
+    await publishToTopic(topicArn, JSON.stringify(req.body))
+        .then(response => {
+            res.send(response)
+        }).catch(error => {
+            res.send(error)
+        })
 })
 
 // redirect all other requests to index.html
