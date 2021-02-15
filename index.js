@@ -26,11 +26,9 @@ app.listen(port, () => {
 
 app.post('/post-message', async (req, res) => {
 
-    console.log(req)
-    console.log(req.body)
-    console.log(JSON.stringify(req.body))
+    const message = `Name: ${req.body.fullName}\nEmail: ${req.body.email}\nMessage: ${req.body.message}`
 
-    await publishToTopic(topicArn, JSON.stringify(req.body))
+    await publishToTopic(topicArn, message)
         .then(response => {
             res.send(response)
         })
