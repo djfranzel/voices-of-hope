@@ -23,8 +23,8 @@ app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
 
-app.post('/post-message', (req, res) => {
-    publishToTopic(topicArn, JSON.stringify(req.body))
+app.post('/post-message', async (req, res) => {
+    res.send(await publishToTopic(topicArn, JSON.stringify(req.body)))
 })
 
 // redirect all other requests to index.html
