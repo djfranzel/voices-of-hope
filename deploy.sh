@@ -7,8 +7,8 @@ ssh -i voices-of-hope.pem ec2-user@3.21.15.203 -T <<'ENDSSH'
   forever stop index.js
   git pull
   git reset --hard origin/master
-#  npm install
-#  npm run build
+  npm install
+  npm run build
   forever start index.js
 
 ENDSSH
