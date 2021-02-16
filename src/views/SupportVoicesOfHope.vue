@@ -7,6 +7,9 @@
       Donate
       <v-icon right>mdi-open-in-new</v-icon>
     </v-btn>
+    <br>
+    <br>
+    <br>
   </div>
 </template>
 

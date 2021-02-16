@@ -24,7 +24,7 @@
       <v-col>
         <h2>Press/Events</h2>
         <v-row>
-          <v-col cols="4" v-for="article of articles">
+          <v-col lg="4" md="4" sm="12" cols="12" v-for="article of articles">
             <v-card ripple class="pt-3 mb-5">
               <v-img class="mb-3 mr-auto ml-auto" style="max-width: 250px; " :src="article.logo"></v-img>
               <v-img :src="article.mainImage"></v-img>

@@ -4,7 +4,7 @@
     <v-divider class="mb-7"></v-divider>
     <v-row>
       <v-spacer></v-spacer>
-      <v-col cols="6">
+      <v-col lg="6" md="6" sm="12" cols="12">
         <iframe width="100%" height="350px" src="https://www.youtube.com/embed/2H4qyOG13fc" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>

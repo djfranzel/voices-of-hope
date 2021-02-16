@@ -4,7 +4,7 @@
     <v-divider class="mb-3"></v-divider>
 
     <v-row>
-      <v-col cols="6">
+      <v-col lg="6" md="6" sm="12" cols="12">
         <h2>Mission</h2>
         <p>To provide accessible music-making opportunities within justice-involved populations that foster individual
           growth and bridge unlikely communities through song.</p>
@@ -22,16 +22,16 @@
           </li>
         </ol>
       </v-col>
-      <v-col cols="6">
+      <v-col lg="6" md="6" sm="12" cols="12">
         <v-img class="elevation-5" src="../static/cantus_collab_1.jpg"/>
       </v-col>
     </v-row>
     <v-divider class="mt-3 mb-3"></v-divider>
     <v-row>
-      <v-col cols="6">
+      <v-col lg="6" md="6" sm="12" cols="12">
         <v-img class="elevation-5" src="../static/cantus_collab_2.jpg"/>
       </v-col>
-      <v-col cols="6">
+      <v-col lg="6" md="6" sm="12" cols="12">
         <h2>History</h2>
         <p><b>Voices of Hope</b> is an organization that builds choral singing communities in correctional facilities in the state
           of Minnesota. The flagship ensemble, Voices of Hope-Shakopee, was founded in 2015 by Dr. Amanda Weber and has
@@ -63,21 +63,21 @@
       <v-col>
         <h2>Board & Staff</h2>
         <v-row>
-          <v-col cols="4">
+          <v-col lg="4" md="4" sm="12" cols="12">
             <v-card elevation="3">
               <v-img src="../static/amanda_headshot.jpg"></v-img>
               <v-card-title>Amanda Weber</v-card-title>
               <v-card-subtitle>(short bio...)</v-card-subtitle>
             </v-card>
           </v-col>
-          <v-col cols="4">
+          <v-col lg="4" md="4" sm="12" cols="12">
             <v-card elevation="3">
               <v-img src="../static/amanda_headshot.jpg"></v-img>
               <v-card-title>Brittany Kallman Arneson</v-card-title>
               <v-card-subtitle>(short bio...)</v-card-subtitle>
             </v-card>
           </v-col>
-          <v-col cols="4">
+          <v-col lg="4" md="4" sm="12" cols="12">
             <v-card elevation="3">
               <v-img src="../static/amanda_headshot.jpg"></v-img>
               <v-card-title>Marylynn Mennicke</v-card-title>

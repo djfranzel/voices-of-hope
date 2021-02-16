@@ -4,7 +4,7 @@
     <v-divider class="mb-7"></v-divider>
 
     <v-row>
-      <v-col cols="6">
+      <v-col lg="6" md="6" sm="12" cols="12">
         <v-form ref="form"
                 v-model="valid"
                 lazy-validation>

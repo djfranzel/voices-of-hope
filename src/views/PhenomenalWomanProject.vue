@@ -3,7 +3,7 @@
     <h1 class="page-title text-center">Phenomenal Woman Project</h1>
     <v-divider class="mb-7"></v-divider>
     <v-row>
-      <div  >
+      <v-col lg="12" md="12" sm="12" cols="12">
         <p>This semester, I had the honor of facilitating a partnership between the University of Minnesota Women&#8217;s
           Chorus and the <b>Voices of Hope</b> women&#8217;s prison choir from the Minnesota Correctional Facility in Shakopee.
           The project took on a life of its own, growing into something much more meaningful than I had imagined. It
@@ -11,7 +11,7 @@
           on their own, even though the <b>Voices of Hope</b> were not able to be present. While their voices were sorely
           missed, their absence spoke loudly, and the second concert was a remarkable experience unto itself. You can
           view that concert in it&#8217;s entirety <a target="_blank"
-              href="https://www.youtube.com/watch?v=xU5wE0s_938&amp;feature=youtu.be">here</a>, or read my pre-concert
+                                                      href="https://www.youtube.com/watch?v=xU5wE0s_938&amp;feature=youtu.be">here</a>, or read my pre-concert
           reflection below:</p>
         <p style="padding-left:30px;"><span style="font-weight:400;">Dangerous, angry, manipulative, unrepentant, unempathetic, inhuman.  Six months ago, Women’s Chorus reflected on the stereotypes of people who are incarcerated, as we prepared to partner with the <b>Voices of Hope</b> women’s prison choir.  “What will they think of me?” asked Women’s Chorus.  “What will they think of </span><i><span
             style="font-weight:400;">me</span></i><span style="font-weight:400;">?” asked the Voices of Hope.  It was the first thing we shared in common &#8211; the basic human longing to be loved and accepted.  Both choirs spent time unraveling stereotypes and opening their minds to the possibility of forming relationships in a most unexpected place.  </span>
@@ -40,11 +40,11 @@
         </p>
         <p style="padding-left:30px;"><span style="font-weight:400;"> But for Women’s Chorus, their work is just beginning.  The Voices of Hope, staying true to their name, infused these students with a new understanding about the power and purpose of music.  We look forward to sharing this with you tonight, but even moreso, there is a greater calling to “rise up” in our interactions with people who are different from us, and to imagine the possibilities of a world where everyone is truly valued.  It starts with the way we think about our own selves.  It starts with our ability to say with confidence, “I am a woman, phenomenally.  Phenomenal woman &#8211; that’s me.”</span>
         </p>
-      </div>
-      <br>
-      <br>
-      <br>
+      </v-col>
     </v-row>
+    <br>
+    <br>
+    <br>
   </div>
 </template>
 

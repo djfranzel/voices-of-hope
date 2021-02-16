@@ -4,7 +4,7 @@
     <v-divider class="mb-7"></v-divider>
     <v-row>
       <v-spacer></v-spacer>
-      <v-col cols="6">
+      <v-col lg="6" md="6" sm="12" cols="12">
         <v-img src="../static/join_voices_of_hope.jpg"></v-img>
       </v-col>
       <v-spacer></v-spacer>
