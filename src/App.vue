@@ -1,7 +1,103 @@
 <template>
   <v-app>
+    <v-navigation-drawer
+        v-model="drawer"
+        v-if="getMobile()"
+        app>
+
+      <v-row no-gutters>
+        <v-col class="logo-container">
+          <v-img src="./static/voh_logo.png"
+                 max-width="125px"
+                 class="ma-3"
+                 alt="Voices of Hope Logo"/>
+          <h2 class="ml-5">Voices of Hope</h2>
+          <h3 class="ml-5">Minnesota Prison Music Initiative</h3>
+        </v-col>
+      </v-row>
+      <v-row class="ml-1">
+        <v-col>
+          <v-btn @click="NavigateToUrl('https://www.facebook.com/wearevoicesofhope/')" icon>
+            <v-icon>mdi-facebook</v-icon>
+          </v-btn>
+
+          <v-btn icon>
+            <v-icon>mdi-instagram</v-icon>
+          </v-btn>
+
+          <v-btn icon>
+            <v-icon>mdi-twitter</v-icon>
+          </v-btn>
+        </v-col>
+      </v-row>
+      <v-divider></v-divider>
+
+      <v-row class="ml-0">
+        <v-col>
+          <v-btn :class="{'mr-2': true, 'mt-2': true, 'ml-auto': true, 'white': !CurrentPage('Home')}" depressed
+                 @click="Navigate('Home')">
+            Home
+          </v-btn>
+          <br>
+          <v-btn :class="{'mr-2': true, 'mt-2': true, 'white': !CurrentPage('WhoWeAre')}" depressed
+                 @click="Navigate('WhoWeAre')">
+            Who We Are
+          </v-btn>
+          <br>
+          <v-btn :class="{'mr-2': true, 'mt-2': true, 'white': !CurrentPage('WhyWeSing')}" depressed
+                 @click="Navigate('WhyWeSing')">
+            Why We Sing
+          </v-btn>
+          <br>
+
+          <v-menu offset-y>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn v-bind="attrs" v-on="on"
+                     :class="{'mr-2': true, 'mt-2': true, 'white': !CurrentPage('JoinOurSong')}" depressed>
+                Join Our Song
+                <v-icon right>mdi-chevron-down</v-icon>
+              </v-btn>
+            </template>
+            <v-list>
+              <v-list-item :class="{'active-list-item': CurrentPage('SupportVoicesOfHope')}"
+                           @click="Navigate('SupportVoicesOfHope')">
+                <v-list-item-title>Support Voices of Hope</v-list-item-title>
+              </v-list-item>
+              <v-list-item :class="{'active-list-item': CurrentPage('SingWithVoicesOfHope')}"
+                           @click="Navigate('SingWithVoicesOfHope')">
+                <v-list-item-title>Sing With Voices of Hope</v-list-item-title>
+              </v-list-item>
+              <v-list-item :class="{'active-list-item': CurrentPage('PhenomenalWomanProject')}"
+                           @click="Navigate('PhenomenalWomanProject')">
+                <v-list-item-title>Phenomenal Woman Project</v-list-item-title>
+              </v-list-item>
+              <v-list-item :class="{'active-list-item': CurrentPage('LearnAndAdvocate')}"
+                           @click="Navigate('LearnAndAdvocate')">
+                <v-list-item-title>Learn & Advocate</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+          <br>
+          <v-btn :class="{'mt-2': true, 'white': !CurrentPage('Contact')}" depressed
+                 @click="Navigate('Contact')">
+            Contact
+          </v-btn>
+        </v-col>
+      </v-row>
+    </v-navigation-drawer>
+    <v-app-bar fixed color="white" v-if="getMobile()">
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>Voices of Hope</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-img src="./static/voh_logo.png"
+             class="ma-3 ml-0"
+             max-height="32px"
+             max-width="32px"
+             alt="Voices of Hope Logo"/>
+    </v-app-bar>
     <v-app-bar fixed
-               height="128px"
+               v-if="!getMobile()"
+               height="128"
                color="white">
       <v-spacer></v-spacer>
       <v-row no-gutters>
@@ -80,16 +176,17 @@
       <v-spacer></v-spacer>
     </v-app-bar>
 
-    <div style="margin-top: 128px">
+    <div>
       <v-container class="mb-0 pb-0">
         <router-view/>
       </v-container>
       <v-footer outlined padless class="footer ma-0">
         <v-container class="pa-0">
           <v-row class="pa-0 ma-1">
-            <v-col cols="6">
+            <v-col lg="6" md="6" sm="12" cols="12">
               <h3 class="mb-5 footer-title">ABOUT VOICES OF HOPE</h3>
-              <p>The <b>Voices of Hope</b> is a women’s prison choir at the Minnesota Correctional Facility in Shakopee, MN.
+              <p>The <b>Voices of Hope</b> is a women’s prison choir at the Minnesota Correctional Facility in Shakopee,
+                MN.
                 The choir was founded in October 2015 by Amanda Weber and rehearses weekly at the prison.</p>
               <v-btn @click="NavigateToUrl('https://www.facebook.com/wearevoicesofhope/')" icon class="mr-2">
                 <v-icon>mdi-facebook</v-icon>
@@ -103,7 +200,7 @@
                 <v-icon>mdi-twitter</v-icon>
               </v-btn>
             </v-col>
-            <v-col cols="3">
+            <v-col lg="3" md="3" sm="12" cols="12">
               <h3 class="mb-5 footer-title">EXTERNAL LINKS</h3>
               <ul>
                 <li>
@@ -122,12 +219,16 @@
               </ul>
 
             </v-col>
-            <v-col cols="3">
+            <v-col lg="3" md="3" sm="12" cols="12">
               <h3 class="mb-5 footer-title">CONTACT</h3>
               <div class="mb-1">
-                <v-icon small class="mr-2">mdi-map-marker</v-icon>
-                1234 East Stratton Street<br>
-                <span class="ml-6">Minneapolis, MN 55055</span>
+                <div style="display: inline-block; vertical-align: top">
+                  <v-icon small class="mr-2">mdi-map-marker</v-icon>
+                </div>
+                <div style="display: inline-block">
+                  1234 East Stratton Street<br>
+                  Minneapolis, MN 55055
+                </div>
               </div>
               <div class="mb-1">
                 <v-icon small class="mr-2">mdi-phone</v-icon>
@@ -176,12 +277,16 @@ export default {
       snackbar: false,
       text: '',
       timeout: 10000,
-    }
+    },
+    drawer: false,
   }),
   created: function () {
     EventBus.$on('snackbar', (snackbar, color, text) => this.SetSnackbar(snackbar, color, text));
   },
   methods: {
+    getMobile: function () {
+      return window.innerWidth < 1300;
+    },
     Navigate: function (page) {
       this.$router.push({name: page})
     },
@@ -227,10 +332,21 @@ export default {
 
 }
 
-.page-container {
-  min-height: calc(100vh - 128px - 283px);
-  padding-top: 32px;
+@media only screen and (min-width: 1300px) {
+  .page-container {
+    min-height: calc(100vh - 128px - 283px);
+    padding-top: 164px;
+  }
 }
+
+@media only screen and (max-width: 1300px) {
+  .page-container {
+    min-height: calc(100vh - 128px - 283px);
+    padding-top: 86px;
+  }
+}
+
+
 
 .page-title {
   margin-bottom: 40px;

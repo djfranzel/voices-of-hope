@@ -5,9 +5,9 @@
 
     <v-row>
       <!--Main content-->
-      <v-col cols="9" class="pa-5">
+      <v-col lg="9" md="9" sm="12" cols="12" class="pa-5">
         <v-row>
-          <v-col cols="6">
+          <v-col lg="6" md="6" sm="12" cols="12">
             <h2 class="mb-2">Voices of Hope</h2>
             <p>The <b>Voices of Hope</b> is a women’s prison choir at the Minnesota Correctional Facility in Shakopee,
               MN.
@@ -18,13 +18,13 @@
               <v-icon right>mdi-arrow-right</v-icon>
             </v-btn>
           </v-col>
-          <v-col cols="6">
+          <v-col lg="6" md="6" sm="12" cols="12">
             <v-img class="elevation-5" src="../static/amanda_headshot.jpg"></v-img>
           </v-col>
         </v-row>
         <v-divider class="mt-7 mb-7"></v-divider>
         <v-row>
-          <v-col>
+          <v-col lg="12" md="12" sm="12" cols="12">
             <h2>Testimonials</h2>
             <blockquote class="blockquote">
               "<b>Voices of Hope</b> helped to keep my spirit alive while incarcerated. Thank you!"
@@ -39,9 +39,9 @@
         </v-row>
       </v-col>
       <!--Right rail-->
-      <v-col cols="3" style="border-left: 1px solid #cccccc" class="pa-5">
+      <v-col lg="3" md="3" sm="12" cols="12" style="border-left: 1px solid #cccccc" class="pa-5">
         <v-row>
-          <v-col>
+          <v-col lg="12" md="12" sm="12" cols="12">
             <h3 class="mb-2">Sing with Voices of Hope:</h3>
             <p>We are always looking for new members.</p>
             <v-btn block @click="Navigate('SingWithVoicesOfHope')" class="primary">
@@ -52,7 +52,7 @@
         </v-row>
         <v-divider class="mt-3 mb-3"></v-divider>
         <v-row>
-          <v-col>
+          <v-col lg="12" md="12" sm="12" cols="12">
             <h3 class="mb-2">More Information:</h3>
             <ul>
               <li>
@@ -76,7 +76,7 @@
         </v-row>
         <v-divider class="mt-3 mb-3"></v-divider>
         <v-row>
-          <v-col>
+          <v-col lg="12" md="12" sm="12" cols="12">
             <h3 class="mb-2">Support Voices of Hope:</h3>
             <p><b>Voices of Hope</b> a Minnesota-based nonprofit. If you would like to support the music program at
               Shakopee, please consider making a donation through our GiveMN page.</p>
@@ -88,11 +88,6 @@
         </v-row>
       </v-col>
     </v-row>
-    <!--    <v-carousel cycle>-->
-    <!--      <v-carousel-item src="../assets/cantus_collab_1.jpg"></v-carousel-item>-->
-    <!--      <v-carousel-item src="../assets/cantus_collab_2.jpg"></v-carousel-item>-->
-    <!--      <v-carousel-item src="../assets/amanda_headshot.jpg"></v-carousel-item>-->
-    <!--    </v-carousel>-->
   </div>
 </template>
 
