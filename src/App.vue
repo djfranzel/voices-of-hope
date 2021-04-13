@@ -185,54 +185,21 @@
           <v-row class="pa-0 ma-1">
             <v-col lg="6" md="6" sm="12" cols="12">
               <h3 class="mb-5 footer-title">ABOUT VOICES OF HOPE</h3>
-              <p>The <b>Voices of Hope</b> is a women’s prison choir at the Minnesota Correctional Facility in Shakopee,
-                MN.
-                The choir was founded in October 2015 by Amanda Weber and rehearses weekly at the prison.</p>
-              <v-btn @click="NavigateToUrl('https://www.facebook.com/wearevoicesofhope/')" icon class="mr-2">
-                <v-icon>mdi-facebook</v-icon>
-              </v-btn>
-
-              <v-btn icon class="mr-2">
-                <v-icon>mdi-instagram</v-icon>
-              </v-btn>
-
-              <v-btn icon class="mr-2">
-                <v-icon>mdi-twitter</v-icon>
-              </v-btn>
+              <p><b>Voices of Hope</b> is a prison music organization providing accessible music-making opportunities
+                within justice-involved populations that foster individual growth and bridge unlikely communities
+                through song.</p>
             </v-col>
             <v-col lg="3" md="3" sm="12" cols="12">
-              <h3 class="mb-5 footer-title">EXTERNAL LINKS</h3>
-              <ul>
-                <li>
-                  <a href="https://amandakateweber.com/voices-of-hope/" target="_blank">Amanda Weber's Blog</a>
-                </li>
-                <li>
-                  <a href="https://springboardforthearts.org/incubator-program/voices-of-hope/" target="_blank">SpringBoard
-                    for the Arts</a>
-                </li>
-                <li>
-                  <a href="https://www.givemn.org/story/Voicesofhope" target="_blank">GiveMN Page</a>
-                </li>
-                <li>
-                  <a href="https://www.youtube.com/watch?v=2H4qyOG13fc" target="_blank">Amanda's TEDx Talk</a>
-                </li>
-              </ul>
-
-            </v-col>
-            <v-col lg="3" md="3" sm="12" cols="12">
-              <h3 class="mb-5 footer-title">CONTACT</h3>
+              <h3 class="mb-5 footer-title">CONTACT US</h3>
               <div class="mb-1">
                 <div style="display: inline-block; vertical-align: top">
                   <v-icon small class="mr-2">mdi-map-marker</v-icon>
                 </div>
                 <div style="display: inline-block">
-                  1234 East Stratton Street<br>
-                  Minneapolis, MN 55055
+                  Voices of Hope<br>
+                  1200 S Marquette Ave<br>
+                  Minneapolis, MN 55403
                 </div>
-              </div>
-              <div class="mb-1">
-                <v-icon small class="mr-2">mdi-phone</v-icon>
-                <a href="tel:1234567890">(123) 456-7890</a>
               </div>
               <div class="mb-1">
                 <v-icon small class="mr-2">mdi-email</v-icon>
@@ -345,7 +312,6 @@ export default {
     padding-top: 86px;
   }
 }
-
 
 
 .page-title {
