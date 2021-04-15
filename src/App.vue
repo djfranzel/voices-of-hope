@@ -138,34 +138,38 @@
                    @click="Navigate('WhyWeSing')">
               Why We Sing
             </v-btn>
+            <v-btn :class="{'mr-2': true, 'mt-2': true, 'white': !CurrentPage('JoinOurSong')}" depressed
+                   @click="Navigate('JoinOurSong')">
+              Join Our Song
+            </v-btn>
 
-            <v-menu offset-y>
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn v-bind="attrs" v-on="on"
-                       :class="{'mr-2': true, 'mt-2': true, 'white': !CurrentPage('JoinOurSong')}" depressed>
-                  Join Our Song
-                  <v-icon right>mdi-chevron-down</v-icon>
-                </v-btn>
-              </template>
-              <v-list>
-                <v-list-item :class="{'active-list-item': CurrentPage('SupportVoicesOfHope')}"
-                             @click="Navigate('SupportVoicesOfHope')">
-                  <v-list-item-title>Support Voices of Hope</v-list-item-title>
-                </v-list-item>
-                <v-list-item :class="{'active-list-item': CurrentPage('SingWithVoicesOfHope')}"
-                             @click="Navigate('SingWithVoicesOfHope')">
-                  <v-list-item-title>Sing With Voices of Hope</v-list-item-title>
-                </v-list-item>
-                <v-list-item :class="{'active-list-item': CurrentPage('PhenomenalWomanProject')}"
-                             @click="Navigate('PhenomenalWomanProject')">
-                  <v-list-item-title>Phenomenal Woman Project</v-list-item-title>
-                </v-list-item>
-                <v-list-item :class="{'active-list-item': CurrentPage('LearnAndAdvocate')}"
-                             @click="Navigate('LearnAndAdvocate')">
-                  <v-list-item-title>Learn & Advocate</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
+<!--            <v-menu offset-y>-->
+<!--              <template v-slot:activator="{ on, attrs }">-->
+<!--                <v-btn v-bind="attrs" v-on="on"-->
+<!--                       :class="{'mr-2': true, 'mt-2': true, 'white': !CurrentPage('JoinOurSong')}" depressed>-->
+<!--                  Join Our Song-->
+<!--                  <v-icon right>mdi-chevron-down</v-icon>-->
+<!--                </v-btn>-->
+<!--              </template>-->
+<!--              <v-list>-->
+<!--                <v-list-item :class="{'active-list-item': CurrentPage('SupportVoicesOfHope')}"-->
+<!--                             @click="Navigate('SupportVoicesOfHope')">-->
+<!--                  <v-list-item-title>Support Voices of Hope</v-list-item-title>-->
+<!--                </v-list-item>-->
+<!--                <v-list-item :class="{'active-list-item': CurrentPage('SingWithVoicesOfHope')}"-->
+<!--                             @click="Navigate('SingWithVoicesOfHope')">-->
+<!--                  <v-list-item-title>Sing With Voices of Hope</v-list-item-title>-->
+<!--                </v-list-item>-->
+<!--                <v-list-item :class="{'active-list-item': CurrentPage('PhenomenalWomanProject')}"-->
+<!--                             @click="Navigate('PhenomenalWomanProject')">-->
+<!--                  <v-list-item-title>Phenomenal Woman Project</v-list-item-title>-->
+<!--                </v-list-item>-->
+<!--                <v-list-item :class="{'active-list-item': CurrentPage('LearnAndAdvocate')}"-->
+<!--                             @click="Navigate('LearnAndAdvocate')">-->
+<!--                  <v-list-item-title>Learn & Advocate</v-list-item-title>-->
+<!--                </v-list-item>-->
+<!--              </v-list>-->
+<!--            </v-menu>-->
             <v-btn :class="{'mt-2': true, 'white': !CurrentPage('Contact')}" depressed
                    @click="Navigate('Contact')">
               Contact
@@ -261,7 +265,7 @@ export default {
       window.open(url, '_blank')
     },
     CurrentPage: function (name) {
-      if (name === 'JoinOurSong') {
+      if (name === 'Dropdown') {
         const route = this.$router.currentRoute.name;
         return route === 'SupportVoicesOfHope' || route === 'SingWithVoicesOfHope' || route === 'LearnAndAdvocate' || route === 'PhenomenalWomanProject';
       } else {

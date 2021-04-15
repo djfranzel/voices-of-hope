@@ -5,12 +5,9 @@ import Router from 'vue-router';
 import Home from "./views/Home";
 import WhoWeAre from "@/views/WhoWeAre";
 import WhyWeSing from "./views/WhyWeSing";
-import SupportVoicesOfHope from "./views/SupportVoicesOfHope";
-import SingWithVoicesOfHope from "./views/SingWithVoicesOfHope";
-import LearnAndAdvocate from "./views/LearnAndAdvocate";
+import JoinOurSong from "./views/JoinOurSong";
 import Contact from "./views/Contact";
 import NotFound from "./views/NotFound";
-import PhenomenalWomanProject from "./views/PhenomenalWomanProject";
 
 Vue.use(Vuetify);
 Vue.use(Router);
@@ -54,27 +51,10 @@ const router = new Router({
             name: 'WhyWeSing',
             component: WhyWeSing
         },
-
-        // for the last nav dropdown
         {
-            path: '/support-voices-of-hope',
-            name: 'SupportVoicesOfHope',
-            component: SupportVoicesOfHope
-        },
-        {
-            path: '/sing-with-voices-of-hope',
-            name: 'SingWithVoicesOfHope',
-            component: SingWithVoicesOfHope
-        },
-        {
-            path: '/phenomenal-woman-project',
-            name: 'PhenomenalWomanProject',
-            component: PhenomenalWomanProject
-        },
-        {
-            path: '/learn-and-advocate',
-            name: 'LearnAndAdvocate',
-            component: LearnAndAdvocate
+            path: '/join-our-song',
+            name: 'JoinOurSong',
+            component: JoinOurSong
         },
         {
             path: '/contact',
