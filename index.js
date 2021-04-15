@@ -34,6 +34,7 @@ app.post('/post-message', async (req, res) => {
     req.body.id = uuid.v4();
     req.body.dateSubmitted = new Date().toUTCString();
     req.body.notes = '';
+    console.log(req.body);
 
     return await documentClient.put({
         TableName: 'voices_of_hope_newsletterSubscriptions',
