@@ -41,7 +41,7 @@ app.post('/post-message', async (req, res) => {
         Item: req.body
     }).promise().catch(error => {
         console.log(error);
-        res.send(error);
+        res.status(500).message(error)
     });
 })
 
