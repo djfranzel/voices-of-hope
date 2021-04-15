@@ -40,8 +40,9 @@ app.post('/post-message', async (req, res) => {
         TableName: 'voices_of_hope_newsletterSubscriptions',
         Item: req.body
     }).promise().catch(error => {
-        console.log(error);
-        res.status(500).message(error)
+        throw error;
+        // console.log(error);
+        // res.status(500).message(error)
     });
 })
 
