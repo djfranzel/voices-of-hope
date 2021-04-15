@@ -5,35 +5,91 @@
 
     <v-row>
       <v-col lg="6" md="6" sm="12" cols="12">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2822.6425945019528!2d-93.27821073408852!3d44.971255729098274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b332be0570719f%3A0xc70ecff93fa30d47!2s1200%20S%20Marquette%20Ave%2C%20Minneapolis%2C%20MN%2055403!5e0!3m2!1sen!2sus!4v1618511143781!5m2!1sen!2sus"
+                width="100%"
+                height="350"
+                style="border:0;"
+                class="pr-3 mb-5"
+                allowfullscreen=""
+                loading="lazy"></iframe>
+
+        <h4>Address:</h4>
+        <p>
+          Voices of Hope<br>
+          1200 S Marquette Ave<br>
+          Minneapolis, MN 55403
+        </p>
+        <h4>Email:</h4>
+        <p><a href="mailto:wearevoicesofhope@gmail.com">wearevoicesofhope@gmail.com</a></p>
+      </v-col>
+      <v-col lg="6" md="6" sm="12" cols="12">
+        <h2 class="mb-3">Subscribe to Our Newsletter!</h2>
         <v-form ref="form"
                 v-model="valid"
                 lazy-validation>
 
-          <v-text-field
-              v-model="form.fullName"
-              :rules="nameRules"
-              label="Full Name"
-              required/>
+          <v-row>
+            <v-col>
+              <h4 class="mt-3 mb-3">Contact:</h4>
 
-          <v-text-field
-              v-model="form.email"
-              label="E-mail"
-              :rules="emailRules"
-              required/>
+              <v-text-field
+                  v-model="form.fullName"
+                  :rules="nameRules"
+                  label="Full Name"/>
 
-          <v-textarea
-              v-model="form.message"
-              label="Message"
-              :rules="messageRules"
-              required/>
-          <br>
+              <v-text-field
+                  v-model="form.email"
+                  label="E-mail"
+                  :rules="emailRules"/>
+
+              <v-text-field
+                  v-model="form.phoneNumber"
+                  label="Phone Number"
+                  type="number"
+                  :rules="phoneRules"/>
+
+              <v-text-field
+                  v-model="form.howDidYouHearAboutUs"
+                  label="How Did You Hear About Us?"
+                  :rules="required"/>
+            </v-col>
+          </v-row>
+
+          <v-row>
+            <v-col>
+              <h4 class="mt-3 mb-3">Address <i>(optional)</i>:</h4>
+              <v-text-field
+                  v-model="form.address.street"
+                  label="Street"/>
+
+              <v-text-field
+                  v-model="form.address.city"
+                  label="City"/>
+
+              <v-row>
+                <v-col>
+                  <v-select
+                      v-model="form.address.state"
+                      label="State"
+                      :items="states"/>
+                </v-col>
+                <v-col>
+                  <v-text-field
+                      v-model="form.address.zipCode"
+                      label="Zip Code"
+                      type="number"/>
+                </v-col>
+              </v-row>
+            </v-col>
+          </v-row>
           <v-btn
               :loading="sending"
               :disabled="!valid || sending"
               color="success"
               class="mr-4"
               @click="validate">
-            Submit
+            Subscribe
             <v-icon right>mdi-send</v-icon>
           </v-btn>
         </v-form>
@@ -55,6 +111,11 @@ export default Vue.extend({
   data: () => ({
     valid: true,
     sending: false,
+    states: [
+      'AZ', 'AL', 'AK', 'AR', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY',
+      'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH',
+      'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY',
+    ],
     nameRules: [
       v => !!v || 'Name is required',
       v => (v && v.length <= 100) || 'Name must be less than 100 characters',
@@ -63,14 +124,25 @@ export default Vue.extend({
       v => !!v || 'E-mail is required',
       v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
     ],
-    messageRules: [
-      v => !!v || 'Message is required',
-      v => (v && v.length <= 1000) || 'Message must be less than 1000 characters',
+    required: [
+      v => !!v || 'Field is required',
+      v => (v && v.length <= 100) || 'Field must be less than 100 characters',
+    ],
+    phoneRules: [
+      v => !!v || 'Phone number is required',
+      v => (v && v.length === 10) || 'Phone number must be exactly 10 numbers',
     ],
     form: {
       fullName: '',
       email: '',
-      message: ''
+      phoneNumber: null,
+      address: {
+        street: '',
+        city: '',
+        state: '',
+        zipCode: null
+      },
+      howDidYouHearAboutUs: ''
     }
   }),
   created: function () {
@@ -78,29 +150,16 @@ export default Vue.extend({
   },
   methods: {
     validate() {
-      if (this.$refs.form.validate()) {
-        this.PostMessage()
-      }
+      if (this.$refs.form.validate()) this.PostMessage();
     },
     PostMessage() {
       this.sending = true;
       const that = this;
-      console.log(this.form);
-      axios
-          .post('/post-message', that.form, {})
-          .then(response => {
-            EventBus.$emit('snackbar', true, 'success', 'Message sent!')
-          })
-          .catch(error => {
-            EventBus.$emit('snackbar', true, 'error', error)
-          })
-          .finally(() => {
-            that.sending = false
-          })
-    },
-    showToast(message, type) {
-
-    },
+      axios.post('/post-message', that.form, {})
+          .then(response => EventBus.$emit('snackbar', true, 'success', 'Message sent!'))
+          .catch(error => EventBus.$emit('snackbar', true, 'error', error))
+          .finally(() => that.sending = false)
+    }
   },
 });
 </script>

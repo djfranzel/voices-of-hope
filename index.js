@@ -4,11 +4,16 @@ const express = require('express'),
     publishToTopic = require('./backend/publishToTopic'),
     topicArn = 'arn:aws:sns:us-east-2:077773808397:publishMessage',
     fs = require('fs'),
+    uuid = require('uuid'),
     privateKey = fs.readFileSync('certs/server.key', 'utf8'),
     certificate = fs.readFileSync('certs/server.crt', 'utf8'),
     app = express(),
     port = 80,
     bodyParser = require('body-parser');
+
+const AWS = require('aws-sdk');
+AWS.config.update({region: 'us-east-2'});
+const documentClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'})
 
 // set up express server
 app.use('/', express.Router());
@@ -20,21 +25,22 @@ app.use(bodyParser.json())
 // const httpsServer = https.createServer({key: privateKey, cert: certificate}, app);
 // httpsServer.listen(port, () => console.log(__dirname, 'Running at localhost:' + port));
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-})
+app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
 
 app.post('/post-message', async (req, res) => {
 
-    const message = `Name: ${req.body.fullName}\nEmail: ${req.body.email}\nMessage: ${req.body.message}`
+    console.log(res.body);
 
-    await publishToTopic(topicArn, message)
-        .then(response => {
-            res.send(response)
-        })
-        .catch(error => {
-            res.send(error)
-        })
+    res.body.id = uuid.v4();
+    res.body.dateSubmitted = new Date().toUTCString();
+    res.body.notes = '';
+
+    return await documentClient.put({
+        TableName: 'voices_of_hope_newsletterSubscriptions',
+        Item: req.body
+    }).promise().catch(error => {
+        throw {status: error.statusCode, message: error.message};
+    });
 })
 
 // redirect all other requests to index.html
