@@ -29,8 +29,6 @@ app.listen(port, () => console.log(`Example app listening at http://localhost:${
 
 app.post('/post-message', async (req, res) => {
 
-    console.log(req.body);
-
     req.body.id = uuid.v4();
     req.body.dateSubmitted = new Date().toUTCString();
     req.body.notes = '';
@@ -40,8 +38,7 @@ app.post('/post-message', async (req, res) => {
         TableName: 'voices_of_hope_newsletterSubscriptions',
         Item: req.body
     }).promise().catch(error => {
-        // throw error;
-        // console.log(error);
+        console.log(error);
         res.status(500).send(error)
     });
 })
