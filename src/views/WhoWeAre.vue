@@ -120,7 +120,7 @@
           </v-col>
           <v-col lg="4" md="4" sm="12" cols="12">
             <v-card elevation="3">
-              <v-img class="staff-headshot" src="../static/brittany_headshot.jpg"></v-img>
+              <v-img src="../static/brittany_headshot.jpg"></v-img>
               <v-card-title>Brittany Kallman Arneson</v-card-title>
               <v-card-subtitle>Executive Director</v-card-subtitle>
               <v-card-text>(short bio...)</v-card-text>
@@ -128,7 +128,7 @@
           </v-col>
           <v-col lg="4" md="4" sm="12" cols="12">
             <v-card elevation="3">
-              <v-img class="staff-headshot" src=""></v-img>
+              <v-img src=""></v-img>
               <v-card-title>MaryLynn Mennicke</v-card-title>
               <v-card-subtitle>Director, Voices of Hope-Stillwater</v-card-subtitle>
               <v-card-text>(short bio...)</v-card-text>
@@ -136,7 +136,7 @@
           </v-col>
           <v-col lg="4" md="4" sm="12" cols="12">
             <v-card elevation="3">
-              <v-img class="staff-headshot" src="../static/zach_busch_headshot.jpg"></v-img>
+              <v-img src="../static/zach_headshot.jpg"></v-img>
               <v-card-title>Zach Busch</v-card-title>
               <v-card-subtitle>Accompanist</v-card-subtitle>
               <v-card-text>(short bio...)</v-card-text>
@@ -144,7 +144,7 @@
           </v-col>
           <v-col lg="4" md="4" sm="12" cols="12">
             <v-card elevation="3">
-              <v-img class="staff-headshot" src="../static/siri_caltvedt_headshot.jpg"></v-img>
+              <v-img src="../static/siri_headshot.jpg"></v-img>
               <v-card-title>Siri Caltvedt</v-card-title>
               <v-card-subtitle>Vocal Coach</v-card-subtitle>
               <v-card-text>(short bio...)</v-card-text>
@@ -199,7 +199,7 @@ export default Vue.extend({
 <style scoped>
 
 .staff-headshot {
-  max-height: 200px !important;
+  /*max-height: 200px !important;*/
 }
 
 </style>
