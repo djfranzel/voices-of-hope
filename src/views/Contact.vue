@@ -135,20 +135,31 @@ export default Vue.extend({
     form: {
       fullName: '',
       email: '',
-      phoneNumber: null,
+      phoneNumber: undefined,
       address: {
         street: '',
         city: '',
         state: '',
-        zipCode: null
+        zipCode: undefined
       },
       howDidYouHearAboutUs: ''
     }
   }),
-  created: function () {
-
-  },
   methods: {
+    SetFormToDefaults () {
+      this.form = {
+        fullName: '',
+        email: '',
+        phoneNumber: undefined,
+        address: {
+          street: '',
+          city: '',
+          state: '',
+          zipCode: undefined
+        },
+        howDidYouHearAboutUs: ''
+      }
+    },
     validate() {
       if (this.$refs.form.validate()) this.PostMessage();
     },
@@ -156,7 +167,10 @@ export default Vue.extend({
       this.sending = true;
       const that = this;
       axios.post('/post-message', that.form, {})
-          .then(response => EventBus.$emit('snackbar', true, 'success', 'Message sent!'))
+          .then(response => {
+            EventBus.$emit('snackbar', true, 'success', 'Subscribed!');
+            that.SetFormToDefaults();
+          })
           .catch(error => EventBus.$emit('snackbar', true, 'error', error))
           .finally(() => that.sending = false)
     }
