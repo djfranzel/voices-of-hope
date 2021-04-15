@@ -34,13 +34,14 @@ app.post('/post-message', async (req, res) => {
     req.body.notes = '';
     console.log(req.body);
 
-    return await documentClient.put({
+    const response = await documentClient.put({
         TableName: 'voices_of_hope_newsletterSubscriptions',
         Item: req.body
     }).promise().catch(error => {
         console.log(error);
         res.status(500).send(error)
     });
+    res.status(200).send(response);
 })
 
 // redirect all other requests to index.html
