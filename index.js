@@ -42,7 +42,7 @@ app.post('/post-message', async (req, res) => {
     }).promise().catch(error => {
         throw error;
         // console.log(error);
-        // res.status(500).message(error)
+        res.status(500).send(error)
     });
 })
 
