@@ -29,11 +29,11 @@ app.listen(port, () => console.log(`Example app listening at http://localhost:${
 
 app.post('/post-message', async (req, res) => {
 
-    console.log(res.body);
+    console.log(req.body);
 
-    res.body.id = uuid.v4();
-    res.body.dateSubmitted = new Date().toUTCString();
-    res.body.notes = '';
+    req.body.id = uuid.v4();
+    req.body.dateSubmitted = new Date().toUTCString();
+    req.body.notes = '';
 
     return await documentClient.put({
         TableName: 'voices_of_hope_newsletterSubscriptions',
