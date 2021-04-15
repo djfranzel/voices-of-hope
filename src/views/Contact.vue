@@ -159,6 +159,7 @@ export default Vue.extend({
         },
         howDidYouHearAboutUs: ''
       }
+      this.$refs.form.reset();
     },
     validate() {
       if (this.$refs.form.validate()) this.PostMessage();
