@@ -20,14 +20,6 @@
           <v-btn @click="NavigateToUrl('https://www.facebook.com/wearevoicesofhope/')" icon>
             <v-icon>mdi-facebook</v-icon>
           </v-btn>
-
-          <v-btn icon>
-            <v-icon>mdi-instagram</v-icon>
-          </v-btn>
-
-          <v-btn icon>
-            <v-icon>mdi-twitter</v-icon>
-          </v-btn>
         </v-col>
       </v-row>
       <v-divider></v-divider>
@@ -117,16 +109,11 @@
         </v-col>
         <v-col cols="7">
           <v-row class="mb-2 mt-1">
+<!--            <v-btn @click="NavigateToUrl('https://www.facebook.com/wearevoicesofhope/')" icon class="ml-auto">-->
+<!--              <v-icon>mdi-email</v-icon>-->
+<!--            </v-btn>-->
             <v-btn @click="NavigateToUrl('https://www.facebook.com/wearevoicesofhope/')" icon class="ml-auto">
               <v-icon>mdi-facebook</v-icon>
-            </v-btn>
-
-            <v-btn icon>
-              <v-icon>mdi-instagram</v-icon>
-            </v-btn>
-
-            <v-btn icon>
-              <v-icon>mdi-twitter</v-icon>
             </v-btn>
           </v-row>
           <v-row>
@@ -192,17 +179,20 @@
         <v-container class="pa-0">
           <v-row class="pa-0 ma-1">
             <v-col lg="6" md="6" sm="12" cols="12">
-              <h3 class="mb-5 footer-title">ABOUT VOICES OF HOPE</h3>
-              <p><b>Voices of Hope</b> is a prison music organization providing accessible music-making opportunities
+              <h3 class="mb-3">About Voices of Hope</h3>
+              <p class="mb-3">Voices of Hope is a prison music organization providing accessible music-making opportunities
                 within justice-involved populations that foster individual growth and bridge unlikely communities
                 through song.</p>
+              <v-btn @click="NavigateToUrl('https://www.facebook.com/wearevoicesofhope/')" icon>
+                <v-icon>mdi-facebook</v-icon>
+              </v-btn>
             </v-col>
-            <v-col lg="3" md="3" sm="12" cols="12">
-              <h3 class="mb-5 footer-title">CONTACT US</h3>
+            <v-col lg="6" md="6" sm="12" cols="12" class="text-right">
+              <h3 class="mb-3">Contact Us</h3>
               <div class="mb-1">
-                <div style="display: inline-block; vertical-align: top">
-                  <v-icon small class="mr-2">mdi-map-marker</v-icon>
-                </div>
+<!--                <div style="display: inline-block; vertical-align: top">-->
+<!--                  <v-icon small class="mr-2">mdi-map-marker</v-icon>-->
+<!--                </div>-->
                 <div style="display: inline-block">
                   Voices of Hope<br>
                   1200 S Marquette Ave<br>
@@ -210,7 +200,7 @@
                 </div>
               </div>
               <div class="mb-1">
-                <v-icon small class="mr-2">mdi-email</v-icon>
+<!--                <v-icon small class="mr-2">mdi-email</v-icon>-->
                 <a href="mailto:wearevoicesofhope@gmail.com">wearevoicesofhope@gmail.com</a>
               </div>
             </v-col>
