@@ -49,34 +49,38 @@
             Why We Sing
           </v-btn>
           <br>
+          <v-btn :class="{'mr-2': true, 'mt-2': true, 'white': !CurrentPage('JoinOurSong')}" depressed
+                 @click="Navigate('JoinOurSong')">
+            Join Our Song
+          </v-btn>
 
-          <v-menu offset-y>
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn v-bind="attrs" v-on="on"
-                     :class="{'mr-2': true, 'mt-2': true, 'white': !CurrentPage('JoinOurSong')}" depressed>
-                Join Our Song
-                <v-icon right>mdi-chevron-down</v-icon>
-              </v-btn>
-            </template>
-            <v-list>
-              <v-list-item :class="{'active-list-item': CurrentPage('SupportVoicesOfHope')}"
-                           @click="Navigate('SupportVoicesOfHope')">
-                <v-list-item-title>Support Voices of Hope</v-list-item-title>
-              </v-list-item>
-              <v-list-item :class="{'active-list-item': CurrentPage('SingWithVoicesOfHope')}"
-                           @click="Navigate('SingWithVoicesOfHope')">
-                <v-list-item-title>Sing With Voices of Hope</v-list-item-title>
-              </v-list-item>
-              <v-list-item :class="{'active-list-item': CurrentPage('PhenomenalWomanProject')}"
-                           @click="Navigate('PhenomenalWomanProject')">
-                <v-list-item-title>Phenomenal Woman Project</v-list-item-title>
-              </v-list-item>
-              <v-list-item :class="{'active-list-item': CurrentPage('LearnAndAdvocate')}"
-                           @click="Navigate('LearnAndAdvocate')">
-                <v-list-item-title>Learn & Advocate</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
+<!--          <v-menu offset-y>-->
+<!--            <template v-slot:activator="{ on, attrs }">-->
+<!--              <v-btn v-bind="attrs" v-on="on"-->
+<!--                     :class="{'mr-2': true, 'mt-2': true, 'white': !CurrentPage('JoinOurSong')}" depressed>-->
+<!--                Join Our Song-->
+<!--                <v-icon right>mdi-chevron-down</v-icon>-->
+<!--              </v-btn>-->
+<!--            </template>-->
+<!--            <v-list>-->
+<!--              <v-list-item :class="{'active-list-item': CurrentPage('SupportVoicesOfHope')}"-->
+<!--                           @click="Navigate('SupportVoicesOfHope')">-->
+<!--                <v-list-item-title>Support Voices of Hope</v-list-item-title>-->
+<!--              </v-list-item>-->
+<!--              <v-list-item :class="{'active-list-item': CurrentPage('SingWithVoicesOfHope')}"-->
+<!--                           @click="Navigate('SingWithVoicesOfHope')">-->
+<!--                <v-list-item-title>Sing With Voices of Hope</v-list-item-title>-->
+<!--              </v-list-item>-->
+<!--              <v-list-item :class="{'active-list-item': CurrentPage('PhenomenalWomanProject')}"-->
+<!--                           @click="Navigate('PhenomenalWomanProject')">-->
+<!--                <v-list-item-title>Phenomenal Woman Project</v-list-item-title>-->
+<!--              </v-list-item>-->
+<!--              <v-list-item :class="{'active-list-item': CurrentPage('LearnAndAdvocate')}"-->
+<!--                           @click="Navigate('LearnAndAdvocate')">-->
+<!--                <v-list-item-title>Learn & Advocate</v-list-item-title>-->
+<!--              </v-list-item>-->
+<!--            </v-list>-->
+<!--          </v-menu>-->
           <br>
           <v-btn :class="{'mt-2': true, 'white': !CurrentPage('Contact')}" depressed
                  @click="Navigate('Contact')">
@@ -213,8 +217,8 @@
           </v-row>
           <v-row class="pa-0 ma-0" style="border-top: 1px solid #cccccc">
             <v-col class="pa-0 ma-0">
-              <p class="font-weight-bold text-center ma-3">&copy; {{ new Date().getFullYear() }} - Voices of
-                Hope</p>
+              <p class="font-weight-bold text-center ma-3">&copy;
+                {{ new Date().getFullYear() }} - Voices of Hope, LLC</p>
             </v-col>
           </v-row>
         </v-container>
