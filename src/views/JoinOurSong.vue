@@ -33,7 +33,7 @@
         <h2 class="mb-3">{{ vohContent.joinOurSong.learnAdvocateTitle }}</h2>
         <iframe height="300px" width="533px" src="https://www.youtube.com/embed/2H4qyOG13fc" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen style="float: right"></iframe>
+                allowfullscreen style="float: right; max-width: 100%"></iframe>
         <span v-html="vohContent.joinOurSong.learnAdvocateContent"></span>
       </v-col>
     </v-row>

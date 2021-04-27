@@ -17,7 +17,7 @@
       </v-row>
       <v-row class="ml-1">
         <v-col>
-          <v-btn @click="NavigateToUrl('https://www.facebook.com/wearevoicesofhope/')" icon>
+          <v-btn @click="NavigateToUrl(vohContent.general.facebookLink)" icon>
             <v-icon>mdi-facebook</v-icon>
           </v-btn>
         </v-col>
@@ -46,33 +46,33 @@
             Join Our Song
           </v-btn>
 
-<!--          <v-menu offset-y>-->
-<!--            <template v-slot:activator="{ on, attrs }">-->
-<!--              <v-btn v-bind="attrs" v-on="on"-->
-<!--                     :class="{'mr-2': true, 'mt-2': true, 'white': !CurrentPage('JoinOurSong')}" depressed>-->
-<!--                Join Our Song-->
-<!--                <v-icon right>mdi-chevron-down</v-icon>-->
-<!--              </v-btn>-->
-<!--            </template>-->
-<!--            <v-list>-->
-<!--              <v-list-item :class="{'active-list-item': CurrentPage('SupportVoicesOfHope')}"-->
-<!--                           @click="Navigate('SupportVoicesOfHope')">-->
-<!--                <v-list-item-title>Support Voices of Hope</v-list-item-title>-->
-<!--              </v-list-item>-->
-<!--              <v-list-item :class="{'active-list-item': CurrentPage('SingWithVoicesOfHope')}"-->
-<!--                           @click="Navigate('SingWithVoicesOfHope')">-->
-<!--                <v-list-item-title>Sing With Voices of Hope</v-list-item-title>-->
-<!--              </v-list-item>-->
-<!--              <v-list-item :class="{'active-list-item': CurrentPage('PhenomenalWomanProject')}"-->
-<!--                           @click="Navigate('PhenomenalWomanProject')">-->
-<!--                <v-list-item-title>Phenomenal Woman Project</v-list-item-title>-->
-<!--              </v-list-item>-->
-<!--              <v-list-item :class="{'active-list-item': CurrentPage('LearnAndAdvocate')}"-->
-<!--                           @click="Navigate('LearnAndAdvocate')">-->
-<!--                <v-list-item-title>Learn & Advocate</v-list-item-title>-->
-<!--              </v-list-item>-->
-<!--            </v-list>-->
-<!--          </v-menu>-->
+          <!--          <v-menu offset-y>-->
+          <!--            <template v-slot:activator="{ on, attrs }">-->
+          <!--              <v-btn v-bind="attrs" v-on="on"-->
+          <!--                     :class="{'mr-2': true, 'mt-2': true, 'white': !CurrentPage('JoinOurSong')}" depressed>-->
+          <!--                Join Our Song-->
+          <!--                <v-icon right>mdi-chevron-down</v-icon>-->
+          <!--              </v-btn>-->
+          <!--            </template>-->
+          <!--            <v-list>-->
+          <!--              <v-list-item :class="{'active-list-item': CurrentPage('SupportVoicesOfHope')}"-->
+          <!--                           @click="Navigate('SupportVoicesOfHope')">-->
+          <!--                <v-list-item-title>Support Voices of Hope</v-list-item-title>-->
+          <!--              </v-list-item>-->
+          <!--              <v-list-item :class="{'active-list-item': CurrentPage('SingWithVoicesOfHope')}"-->
+          <!--                           @click="Navigate('SingWithVoicesOfHope')">-->
+          <!--                <v-list-item-title>Sing With Voices of Hope</v-list-item-title>-->
+          <!--              </v-list-item>-->
+          <!--              <v-list-item :class="{'active-list-item': CurrentPage('PhenomenalWomanProject')}"-->
+          <!--                           @click="Navigate('PhenomenalWomanProject')">-->
+          <!--                <v-list-item-title>Phenomenal Woman Project</v-list-item-title>-->
+          <!--              </v-list-item>-->
+          <!--              <v-list-item :class="{'active-list-item': CurrentPage('LearnAndAdvocate')}"-->
+          <!--                           @click="Navigate('LearnAndAdvocate')">-->
+          <!--                <v-list-item-title>Learn & Advocate</v-list-item-title>-->
+          <!--              </v-list-item>-->
+          <!--            </v-list>-->
+          <!--          </v-menu>-->
           <br>
           <v-btn :class="{'mt-2': true, 'white': !CurrentPage('Contact')}" depressed
                  @click="Navigate('Contact')">
@@ -109,10 +109,10 @@
         </v-col>
         <v-col cols="7">
           <v-row class="mb-2 mt-1">
-<!--            <v-btn @click="NavigateToUrl('https://www.facebook.com/wearevoicesofhope/')" icon class="ml-auto">-->
-<!--              <v-icon>mdi-email</v-icon>-->
-<!--            </v-btn>-->
-            <v-btn @click="NavigateToUrl('https://www.facebook.com/wearevoicesofhope/')" icon class="ml-auto">
+            <!--            <v-btn @click="NavigateToUrl('https://www.facebook.com/wearevoicesofhope/')" icon class="ml-auto">-->
+            <!--              <v-icon>mdi-email</v-icon>-->
+            <!--            </v-btn>-->
+            <v-btn @click="NavigateToUrl(vohContent.general.facebookLink)" icon class="ml-auto">
               <v-icon>mdi-facebook</v-icon>
             </v-btn>
           </v-row>
@@ -134,33 +134,33 @@
               Join Our Song
             </v-btn>
 
-<!--            <v-menu offset-y>-->
-<!--              <template v-slot:activator="{ on, attrs }">-->
-<!--                <v-btn v-bind="attrs" v-on="on"-->
-<!--                       :class="{'mr-2': true, 'mt-2': true, 'white': !CurrentPage('JoinOurSong')}" depressed>-->
-<!--                  Join Our Song-->
-<!--                  <v-icon right>mdi-chevron-down</v-icon>-->
-<!--                </v-btn>-->
-<!--              </template>-->
-<!--              <v-list>-->
-<!--                <v-list-item :class="{'active-list-item': CurrentPage('SupportVoicesOfHope')}"-->
-<!--                             @click="Navigate('SupportVoicesOfHope')">-->
-<!--                  <v-list-item-title>Support Voices of Hope</v-list-item-title>-->
-<!--                </v-list-item>-->
-<!--                <v-list-item :class="{'active-list-item': CurrentPage('SingWithVoicesOfHope')}"-->
-<!--                             @click="Navigate('SingWithVoicesOfHope')">-->
-<!--                  <v-list-item-title>Sing With Voices of Hope</v-list-item-title>-->
-<!--                </v-list-item>-->
-<!--                <v-list-item :class="{'active-list-item': CurrentPage('PhenomenalWomanProject')}"-->
-<!--                             @click="Navigate('PhenomenalWomanProject')">-->
-<!--                  <v-list-item-title>Phenomenal Woman Project</v-list-item-title>-->
-<!--                </v-list-item>-->
-<!--                <v-list-item :class="{'active-list-item': CurrentPage('LearnAndAdvocate')}"-->
-<!--                             @click="Navigate('LearnAndAdvocate')">-->
-<!--                  <v-list-item-title>Learn & Advocate</v-list-item-title>-->
-<!--                </v-list-item>-->
-<!--              </v-list>-->
-<!--            </v-menu>-->
+            <!--            <v-menu offset-y>-->
+            <!--              <template v-slot:activator="{ on, attrs }">-->
+            <!--                <v-btn v-bind="attrs" v-on="on"-->
+            <!--                       :class="{'mr-2': true, 'mt-2': true, 'white': !CurrentPage('JoinOurSong')}" depressed>-->
+            <!--                  Join Our Song-->
+            <!--                  <v-icon right>mdi-chevron-down</v-icon>-->
+            <!--                </v-btn>-->
+            <!--              </template>-->
+            <!--              <v-list>-->
+            <!--                <v-list-item :class="{'active-list-item': CurrentPage('SupportVoicesOfHope')}"-->
+            <!--                             @click="Navigate('SupportVoicesOfHope')">-->
+            <!--                  <v-list-item-title>Support Voices of Hope</v-list-item-title>-->
+            <!--                </v-list-item>-->
+            <!--                <v-list-item :class="{'active-list-item': CurrentPage('SingWithVoicesOfHope')}"-->
+            <!--                             @click="Navigate('SingWithVoicesOfHope')">-->
+            <!--                  <v-list-item-title>Sing With Voices of Hope</v-list-item-title>-->
+            <!--                </v-list-item>-->
+            <!--                <v-list-item :class="{'active-list-item': CurrentPage('PhenomenalWomanProject')}"-->
+            <!--                             @click="Navigate('PhenomenalWomanProject')">-->
+            <!--                  <v-list-item-title>Phenomenal Woman Project</v-list-item-title>-->
+            <!--                </v-list-item>-->
+            <!--                <v-list-item :class="{'active-list-item': CurrentPage('LearnAndAdvocate')}"-->
+            <!--                             @click="Navigate('LearnAndAdvocate')">-->
+            <!--                  <v-list-item-title>Learn & Advocate</v-list-item-title>-->
+            <!--                </v-list-item>-->
+            <!--              </v-list>-->
+            <!--            </v-menu>-->
             <v-btn :class="{'mt-2': true, 'white': !CurrentPage('Contact')}" depressed
                    @click="Navigate('Contact')">
               Contact
@@ -179,29 +179,25 @@
         <v-container class="pa-0">
           <v-row class="pa-0 ma-1">
             <v-col lg="6" md="6" sm="12" cols="12">
-              <h3 class="mb-3">About Voices of Hope</h3>
-              <p class="mb-3">Voices of Hope is a prison music organization providing accessible music-making opportunities
-                within justice-involved populations that foster individual growth and bridge unlikely communities
-                through song.</p>
-              <v-btn @click="NavigateToUrl('https://www.facebook.com/wearevoicesofhope/')" icon>
+              <h3 class="mb-3">{{ vohContent.footer.leftTitle }}</h3>
+              <p class="mb-3"><span v-html="vohContent.footer.leftText"></span></p>
+              <v-btn @click="NavigateToUrl(vohContent.general.facebookLink)" icon>
                 <v-icon>mdi-facebook</v-icon>
               </v-btn>
             </v-col>
             <v-col lg="6" md="6" sm="12" cols="12" class="text-right">
-              <h3 class="mb-3">Contact Us</h3>
+              <h3 class="mb-3">{{ vohContent.footer.rightTitle }}</h3>
               <div class="mb-1">
-<!--                <div style="display: inline-block; vertical-align: top">-->
-<!--                  <v-icon small class="mr-2">mdi-map-marker</v-icon>-->
-<!--                </div>-->
                 <div style="display: inline-block">
-                  Voices of Hope<br>
-                  1200 S Marquette Ave<br>
-                  Minneapolis, MN 55403
+                  {{ vohContent.general.organizationName }}<br>
+                  {{ vohContent.general.address.street }}<br>
+                  {{ vohContent.general.address.city }}, {{ vohContent.general.address.state }}
+                  {{ vohContent.general.address.zipCode }}
                 </div>
               </div>
               <div class="mb-1">
-<!--                <v-icon small class="mr-2">mdi-email</v-icon>-->
-                <a href="mailto:wearevoicesofhope@gmail.com">wearevoicesofhope@gmail.com</a>
+                <!--                <v-icon small class="mr-2">mdi-email</v-icon>-->
+                <a :href="'mailto:' + vohContent.general.email">{{ vohContent.general.email }}</a>
               </div>
             </v-col>
           </v-row>
@@ -245,6 +241,7 @@ export default {
       timeout: 10000,
     },
     drawer: false,
+    vohContent: {}
   }),
   created: function () {
     EventBus.$on('snackbar', (snackbar, color, text) => this.SetSnackbar(snackbar, color, text));

@@ -23,7 +23,7 @@
           {{ vohContent.general.address.zipCode }}
         </p>
         <h4>Email:</h4>
-        <p><a :href="'mailto:' + vohContent.general.email">vohContent.general.email</a></p>
+        <p><a :href="'mailto:' + vohContent.general.email">{{ vohContent.general.email }}</a></p>
       </v-col>
       <v-col lg="6" md="6" sm="12" cols="12">
         <h2 class="mb-3">Subscribe to Our Newsletter!</h2>
