@@ -110,6 +110,7 @@ export default Vue.extend({
     Login: function () {
       if (!this.valid) return this.$refs.form.validate();
       const that = this;
+      this.loading = true;
       axios.post('/authenticate', that.credentials)
           .then(response => {
             if (response.data.token) {
