@@ -7,6 +7,7 @@ import WhoWeAre from "@/views/WhoWeAre";
 import WhyWeSing from "./views/WhyWeSing";
 import JoinOurSong from "./views/JoinOurSong";
 import Contact from "./views/Contact";
+import Admin from "./views/Admin";
 import NotFound from "./views/NotFound";
 
 Vue.use(Vuetify);
@@ -60,6 +61,11 @@ const router = new Router({
             path: '/contact',
             name: 'Contact',
             component: Contact
+        },
+        {
+            path: '/admin',
+            name: 'Admin',
+            component: Admin
         },
         {
             path: '/*',

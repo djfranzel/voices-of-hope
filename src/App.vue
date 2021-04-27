@@ -233,6 +233,7 @@
 
 <script>
 import {EventBus} from './event-bus.js';
+import axios from "axios";
 
 export default {
   name: 'App',
@@ -247,8 +248,19 @@ export default {
   }),
   created: function () {
     EventBus.$on('snackbar', (snackbar, color, text) => this.SetSnackbar(snackbar, color, text));
+    this.GetVOHContent();
   },
   methods: {
+    GetVOHContent: function () {
+      const that = this;
+      axios.get('/get-voh-content')
+          .then(response => {
+            that.vohContent = response.data;
+            sessionStorage.setItem('vohContent', JSON.stringify(that.vohContent));
+          })
+          .catch(error => alert('Could not get content!'))
+          .finally(() => that.loading = false);
+    },
     getMobile: function () {
       return window.innerWidth < 1300;
     },

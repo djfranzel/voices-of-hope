@@ -9,7 +9,9 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'NotFound',
-  data: () => ({}),
+  data: () => ({
+    vohContent: JSON.parse(sessionStorage.getItem('vohContent'))
+  }),
   created: function () {
 
   },

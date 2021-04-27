@@ -109,6 +109,7 @@ import axios from "axios";
 export default Vue.extend({
   name: 'Contact',
   data: () => ({
+    vohContent: JSON.parse(sessionStorage.getItem('vohContent')),
     valid: true,
     sending: false,
     states: [

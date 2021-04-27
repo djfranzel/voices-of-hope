@@ -182,6 +182,7 @@ import Vue from 'vue';
 export default Vue.extend({
   name: 'WhyWeSing',
   data: () => ({
+    vohContent: JSON.parse(sessionStorage.getItem('vohContent')),
     articles: [
       {
         logo: '/star_tribune_logo.png',

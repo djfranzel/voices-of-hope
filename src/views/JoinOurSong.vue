@@ -80,6 +80,7 @@ import Vue from 'vue';
 export default Vue.extend({
   name: 'WhyWeSing',
   data: () => ({
+    vohContent: JSON.parse(sessionStorage.getItem('vohContent'))
 
   }),
   created: function () {
