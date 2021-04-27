@@ -7,7 +7,7 @@
       </v-col>
       <v-col cols="auto" class="ml-auto">
         <v-btn @click="Logout()">
-          <v-icon right>mdi-logout</v-icon>
+          <v-icon left>mdi-logout</v-icon>
           Logout
         </v-btn>
       </v-col>
@@ -54,7 +54,9 @@
       <v-row>
         <v-col>
 
-          <v-tabs v-model="tab" background-color="blue" grow>
+          <v-tabs v-model="tab"
+                  background-color="transparent"
+                  color="blue" grow>
             <v-tab key="General">General</v-tab>
             <v-tab key="Home">Home</v-tab>
             <v-tab key="Who We Are">Who We Are</v-tab>
@@ -415,6 +417,7 @@ export default Vue.extend({
     },
     PostVOHContent: function () {
       const that = this;
+      this.saving = true;
       this.vohContent = JSON.parse(JSON.stringify(this.vohContentTemp));
       axios.post('/post-voh-content', that.vohContent, {headers: {token: sessionStorage.getItem('token')}})
           .then(response => that.vohContent = response.data)
