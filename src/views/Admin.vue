@@ -1,6 +1,18 @@
 <template>
   <div v-if="vohContent.general" class="page-container">
-    <h1 class="page-title text-center">Admin</h1>
+
+    <v-row>
+      <v-col cols="auto">
+        <h1 class="page-title">Admin</h1>
+      </v-col>
+      <v-col cols="auto" class="ml-auto">
+        <v-btn @click="Logout()">
+          <v-icon right>mdi-logout</v-icon>
+          Logout
+        </v-btn>
+      </v-col>
+    </v-row>
+
     <v-divider class="mb-7"></v-divider>
 
     <v-row v-if="!showEditSections">
@@ -43,12 +55,15 @@
         <v-col>
 
           <v-tabs v-model="tab" background-color="blue" grow>
-            <v-tab key="General"></v-tab>
-            <v-tab key="Home"></v-tab>
-            <v-tab key="Who We Are"></v-tab>
-            <v-tab key="Why We Sing"></v-tab>
-            <v-tab key="Join Our Song"></v-tab>
+            <v-tab key="General">General</v-tab>
+            <v-tab key="Home">Home</v-tab>
+            <v-tab key="Who We Are">Who We Are</v-tab>
+            <v-tab key="Why We Sing">Why We Sing</v-tab>
+            <v-tab key="Join Our Song">Join Our Song</v-tab>
           </v-tabs>
+
+          <br>
+          <br>
 
           <v-tabs-items v-model="tab">
             <v-tab-item key="General">
@@ -227,7 +242,7 @@
                  :disabled="loading || saving"
                  :loading="saving"
                  @click="PostVOHContent()">
-            <v-icon left>mdi-save</v-icon>
+            <v-icon left>mdi-content-save</v-icon>
             Save
           </v-btn>
         </v-col>
@@ -361,6 +376,7 @@ export default Vue.extend({
           .then(response => {
             if (response.data.authenticated) {
               that.showEditSections = true;
+              that.vohContentTemp = JSON.parse(JSON.stringify(that.vohContent));
             } else {
               console.log('Invalid token')
             }
@@ -409,6 +425,11 @@ export default Vue.extend({
       this.credentials.password = '';
       this.$refs.form.validate();
       alert('Incorrect password!');
+    },
+    Logout: function () {
+      const that = this;
+      axios.post('/logout', {})
+          .finally(() => that.$router.push({name: 'Home'}));
     }
   }
 });

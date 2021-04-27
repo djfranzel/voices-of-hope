@@ -47,6 +47,11 @@ app.post('/authenticate', async (req, res) => {
     }
 })
 
+app.post('/logout', (req, res) => {
+    cache.clear();
+    res.status(200).send('Logged out!')
+})
+
 app.post('/post-voh-content', async (req, res) => {
     if (authenticated(req.headers.token)) {
         req.body.id = 'voh_content';
@@ -71,7 +76,7 @@ app.get('/get-subscribers', async (req, res) => {
             console.log(error);
             res.status(500).send(error)
         });
-        res.status(200).send(response);
+        res.status(200).send(response.Items);
     } else {
         res.status(500).send('Not authorized!');
     }
