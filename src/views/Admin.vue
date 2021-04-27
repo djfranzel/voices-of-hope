@@ -5,7 +5,7 @@
       <v-col cols="auto">
         <h1 class="page-title">Admin</h1>
       </v-col>
-      <v-col v-if="sessionStorage.getItem('token')" cols="auto" class="ml-auto">
+      <v-col v-if="showEditSections" cols="auto" class="ml-auto">
         <v-btn @click="Logout()">
           <v-icon left>mdi-logout</v-icon>
           Logout
