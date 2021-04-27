@@ -8,7 +8,7 @@ ssh -i voices-of-hope.pem ec2-user@3.21.15.203 -T <<'ENDSSH'
   git pull
   git reset --hard origin/master
 #  npm install
-#  npm run build
+  npm run build
   forever start -l /home/ec2-user/voices-of-hope/forever.log -a index.js
 
 ENDSSH

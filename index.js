@@ -34,6 +34,7 @@ app.post('/authenticate', async (req, res) => {
     if (req.body.username === username && req.body.password === password) {
         const token = uuid.v4();
         cache.put(req.body.username, token, 1000 * 60 * 180);
+        console.log(cache.get(req.body.username));
         res.status(200).send({
             token: token,
             message: 'Successfully authenticated!'

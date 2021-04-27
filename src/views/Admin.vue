@@ -117,10 +117,10 @@ export default Vue.extend({
             if (response.data.token) {
               that.showEditSections = true;
             } else {
-              that.InvalidCredentials();
+              console.log('Invalid token')
             }
           })
-          .catch(error => that.InvalidCredentials())
+          .catch(error => console.log('Invalid token'))
           .finally(() => that.loading = false);
     },
     Login: function () {
