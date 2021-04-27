@@ -1,5 +1,5 @@
 <template>
-  <div class="page-container">
+  <div v-if="vohContent.general" class="page-container">
     <h1 class="page-title text-center">Admin</h1>
     <v-divider class="mb-7"></v-divider>
 

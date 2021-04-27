@@ -113,7 +113,7 @@
       <v-spacer></v-spacer>
     </v-app-bar>
 
-    <div>
+    <div v-if="vohContent.general">
       <v-container class="mb-0 pb-0">
         <router-view/>
       </v-container>

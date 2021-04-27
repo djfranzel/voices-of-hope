@@ -1,5 +1,5 @@
 <template>
-  <div class="page-container">
+  <div v-if="vohContent.general" class="page-container">
     <h1 class="page-title text-center">{{ vohContent.joinOurSong.pageTitle }}</h1>
     <v-divider class="mb-3"></v-divider>
     <v-row class="ma-7">
