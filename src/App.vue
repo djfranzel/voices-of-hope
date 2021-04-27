@@ -113,11 +113,11 @@
       <v-spacer></v-spacer>
     </v-app-bar>
 
-    <div v-if="vohContent.general">
+    <div>
       <v-container class="mb-0 pb-0">
         <router-view/>
       </v-container>
-      <v-footer outlined padless class="footer ma-0">
+      <v-footer v-if="vohContent.footer" outlined padless class="footer ma-0">
         <v-container class="pa-0">
           <v-row class="pa-0 ma-1">
             <v-col lg="6" md="6" sm="12" cols="12">
