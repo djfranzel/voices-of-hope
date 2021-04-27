@@ -57,7 +57,7 @@ app.post('/post-voh-content', async (req, res) => {
             console.log(error);
             res.status(500).send(error)
         });
-        res.status(200).send(response);
+        res.status(200).send(req.body);
     } else {
         res.status(500).send('Not authorized!');
     }

@@ -71,7 +71,7 @@
           <v-text-field
               v-model="vohContentTemp.general.footer.leftTitle"
               label="Left Title"/>
-          <v-text-field
+          <v-textarea
               v-model="vohContentTemp.general.footer.leftText"
               label="Left Text"/>
           <v-text-field
@@ -83,30 +83,143 @@
       <v-row>
         <v-col>
           <h1>Home</h1>
+          <v-textarea
+              v-model="vohContentTemp.home.mainQuote"
+              label="Main Quote"/>
+          <v-textarea
+              v-model="vohContentTemp.home.aboutBlockText"
+              label="About Block Text"/>
+          <v-textarea
+              v-model="vohContentTemp.home.testimonialBlockQuote"
+              label="Testimonial Block Quote"/>
+          <v-text-field
+              v-model="vohContentTemp.home.testimonialBlockAuthor"
+              label="Testimonial Block Author"/>
+          <v-textarea
+              v-model="vohContentTemp.home.collaborateBlockText"
+              label="Collaborate Block Text"/>
         </v-col>
       </v-row>
       <v-divider></v-divider>
       <v-row>
         <v-col>
           <h1>Who We Are</h1>
+          <v-text-field
+              v-model="vohContentTemp.whoWeAre.pageTitle"
+              label="Page Title"/>
+          <v-text-field
+              v-model="vohContentTemp.whoWeAre.aboutTitle"
+              label="About Title"/>
+          <v-textarea
+              v-model="vohContentTemp.whoWeAre.aboutText"
+              label="About Text"/>
+          <v-text-field
+              v-model="vohContentTemp.whoWeAre.hopesBlockTitle"
+              label="Hopes Block Title"/>
+          <v-textarea
+              v-model="vohContentTemp.whoWeAre.hopesBlockContent"
+              label="Hopes Block Content"/>
+          <v-text-field
+              v-model="vohContentTemp.whoWeAre.historyBlockTitle"
+              label="History Block Title"/>
+          <v-textarea
+              v-model="vohContentTemp.whoWeAre.historyBlockContent"
+              label="History Block Content"/>
+          <v-text-field
+              v-model="vohContentTemp.whoWeAre.choirsBlockTitle"
+              label="Choirs Block Title"/>
+          <v-textarea
+              v-model="vohContentTemp.whoWeAre.choirsBlockContent"
+              label="Choirs Block Content"/>
+          <v-text-field
+              v-model="vohContentTemp.whoWeAre.volunteerBlockTitle"
+              label="Volunteer Block Title"/>
+          <v-textarea
+              v-model="vohContentTemp.whoWeAre.volunteerBlockContent"
+              label="Volunteer Block Content"/>
+          <v-text-field
+              v-model="vohContentTemp.whoWeAre.advisoryTitle"
+              label="Advisory Block Title"/>
+          <v-textarea
+              v-model="vohContentTemp.whoWeAre.advisoryContent"
+              label="Advisory Block Content"/>
+          <div v-for="person of vohContentTemp.whoWeAre.staff">
+            <v-text-field
+                v-model="person.name"
+                label="Name"/>
+            <v-text-field
+                v-model="person.title"
+                label="Title"/>
+            <v-text-field
+                v-model="person.bio"
+                label="Short Bio"/>
+            <v-text-field
+                v-model="person.imageURL"
+                label="Image URL"/>
+          </div>
         </v-col>
       </v-row>
       <v-divider></v-divider>
       <v-row>
         <v-col>
           <h1>Why We Sing</h1>
+          <v-text-field
+              v-model="vohContentTemp.whyWeSing.pageTitle"
+              label="Page Title"/>
+          <v-textarea
+              v-model="vohContentTemp.whyWeSing.testimonialBlockQuote"
+              label="Testimonial Block Quote"/>
+          <v-text-field
+              v-model="vohContentTemp.whyWeSing.testimonialBlockAuthor"
+              label="Testimonial Block Author"/>
+          <v-text-field
+              v-model="vohContentTemp.whyWeSing.benefitsTitle"
+              label="Benefits Block Title"/>
+          <v-textarea
+              v-model="vohContentTemp.whyWeSing.benefitsContent"
+              label="Benefits Block Content"/>
+          <v-text-field
+              v-model="vohContentTemp.whyWeSing.incarcerationTitle"
+              label="Incarceration Block Title"/>
+          <v-textarea
+              v-model="vohContentTemp.whyWeSing.incarcerationContent"
+              label="Incarceration Block Content"/>
+          <v-text-field
+              v-model="vohContentTemp.whyWeSing.testimonialsTitle"
+              label="Testimonials Block Title"/>
+          <v-textarea
+              v-model="vohContentTemp.whyWeSing.testimonialsContentOne"
+              label="Testimonials Block Content One"/>
+          <v-textarea
+              v-model="vohContentTemp.whyWeSing.testimonialsContentTwo"
+              label="Testimonials Block Content Two"/>
         </v-col>
       </v-row>
       <v-divider></v-divider>
       <v-row>
         <v-col>
           <h1>Join Our Song</h1>
-        </v-col>
-      </v-row>
-      <v-divider></v-divider>
-      <v-row>
-        <v-col>
-          <h1>Contact</h1>
+          <v-text-field
+              v-model="vohContentTemp.joinOurSong.pageTitle"
+              label="Page Title"/>
+          <v-text-field
+              v-model="vohContentTemp.joinOurSong.supportBlockTitle"
+              label="Support Block Title"/>
+          <v-textarea
+              v-model="vohContentTemp.joinOurSong.supportBlockContent"
+              label="Support Block Content"/>
+          <v-text-field
+              v-model="vohContentTemp.joinOurSong.singBlockTitle"
+              label="Sing Block Title"/>
+          <v-textarea
+              v-model="vohContentTemp.joinOurSong.singBlockContent"
+              label="Sing Block Content"/>
+          <v-text-field
+              v-model="vohContentTemp.joinOurSong.learnAdvocateTitle"
+              label="Learn & Advocate Title"/>
+          <v-textarea
+              v-model="vohContentTemp.joinOurSong.learnAdvocateContent"
+              label="Learn & Advocate Content"/>
         </v-col>
       </v-row>
       <v-divider></v-divider>
@@ -224,7 +337,7 @@ export default Vue.extend({
         benefitsTitle: 'BENEFITS OF CHORAL SINGING',
         benefitsContent: '<p>No matter who you are or what kind of singing you do, the benefits to your physical, and mental/emotional health are vast! Proven benefits of choral singing include:</p>\n <ul>\n <li>improved lung function</li>\n<li>increases heart rate variability</li>\n <li>aids the circulatory system</li>\n<li>releases oxytocin which has been found to increase trust, reduce negative behavior, and potentially\n increase social bonding\n</li>\n <li>increases levels of secretory immunoglobulin A, a hormone which protects the body from bacterial and viral\ninfection, boosting the immune system and leading to increased positivity and relaxation\n </li>\n<li>triggers endorphin release, resulting in both euphoric and sedative states</li>\n </ul>',
         incarcerationTitle: 'CHORAL SINGING AND INCARCERATION',
-        icarcerationContent: '<p>Studies of prison choirs are limited due to the research protections of incarcerated people as a “vulnerable population.” Data-based research studies include:</p>\n <ul class="mb-3">\n <li>Cohen, Mary L. “Choral Singing and Prison Inmates: Influences of Singing in a Prison Choir.” Journal of\nCorrectional Education 60, no. 1 (2009): 52-65.\n </li>\n <li>Cohen, Mary L. "Explorations of Inmate and Volunteer Choral Experiences in a Prison-based Choir."\nAustralian Journal of Music Education, no. 1 (2007): 61-72.\n </li>\n <li>Cohen, Mary L. "Harmony within the Walls: Perceptions of Worthiness and Competence in a Community Prison\nChoir." International Journal of Music Education 30, no. 1 (2012): 46-56.\n </li>\n <li>Richmiller, M. G. Study of the Residual Effects of Music Education Experiences of a Prison Choir,\nTwenty-Nine Years After Participation. Unpublished Master’s thesis, Southeast Missouri State University,\nCape Girardeau, MO, 1992.\n </li>\n <li>Roma, Cathy. “Re-sounding: Refuge and Reprise in a Prison Choral Community.” International Journal of\nCommunity Music 3, no. 1 (2010): 91-101.\n </li>\n </ul>\n <p>These studies suggest that the social experience of singing in choir is what has been most impactful for\nsingers. Other research-based benefits include:</p>\n <ul class="mb-3">\n <li>improved life skills, such as goal-oriented behavior, self-discipline, and improved communication</li>\n <li>more positive self-esteem</li>\n <li>perceived benefits as joy, increased feelings of self-worth and self-confidence</li>\n <li>purpose, a sense of belonging, spiritual connection, and pride</li>\n <li>collaboration with “outside” community singers shows potential for positive transformative change for both\nparticipant groups\n </li>\n <li>the social experience of choir increased racial tolerance and understanding, opened people’s minds, and\nled to an increased desire to help others\n </li>\n </ul>\n <p>Voices of Hope contributed to this research through Dr. Amanda Weber’s 2018 dissertation. The survey and\ninterview data collected through Weber’s program evaluation showed the following:</p>\n <ul>\n <li>VOH singers described increased feelings of happiness, positivity, self-worth, accomplishment, and an\nimproved attitude\n </li>\n <li>Multiple singers believe their aggression has decreased; some singers feel they cry more often and have\nbecome more open with their feelings\n </li>\n <li>Many singers said they feel more open to trying new things and believe that choir has helped them to come\nout of their shell\n </li>\n <li>Several participants said they want to use their voices for good in the community</li>\n <li>The most commonly cited theme was connection; for many singers, choir has enabled a sense of bonding and\nincreased empathy in a diverse setting\n </li>\n </ul>',
+        incarcerationContent: '<p>Studies of prison choirs are limited due to the research protections of incarcerated people as a “vulnerable population.” Data-based research studies include:</p>\n <ul class="mb-3">\n <li>Cohen, Mary L. “Choral Singing and Prison Inmates: Influences of Singing in a Prison Choir.” Journal of\nCorrectional Education 60, no. 1 (2009): 52-65.\n </li>\n <li>Cohen, Mary L. "Explorations of Inmate and Volunteer Choral Experiences in a Prison-based Choir."\nAustralian Journal of Music Education, no. 1 (2007): 61-72.\n </li>\n <li>Cohen, Mary L. "Harmony within the Walls: Perceptions of Worthiness and Competence in a Community Prison\nChoir." International Journal of Music Education 30, no. 1 (2012): 46-56.\n </li>\n <li>Richmiller, M. G. Study of the Residual Effects of Music Education Experiences of a Prison Choir,\nTwenty-Nine Years After Participation. Unpublished Master’s thesis, Southeast Missouri State University,\nCape Girardeau, MO, 1992.\n </li>\n <li>Roma, Cathy. “Re-sounding: Refuge and Reprise in a Prison Choral Community.” International Journal of\nCommunity Music 3, no. 1 (2010): 91-101.\n </li>\n </ul>\n <p>These studies suggest that the social experience of singing in choir is what has been most impactful for\nsingers. Other research-based benefits include:</p>\n <ul class="mb-3">\n <li>improved life skills, such as goal-oriented behavior, self-discipline, and improved communication</li>\n <li>more positive self-esteem</li>\n <li>perceived benefits as joy, increased feelings of self-worth and self-confidence</li>\n <li>purpose, a sense of belonging, spiritual connection, and pride</li>\n <li>collaboration with “outside” community singers shows potential for positive transformative change for both\nparticipant groups\n </li>\n <li>the social experience of choir increased racial tolerance and understanding, opened people’s minds, and\nled to an increased desire to help others\n </li>\n </ul>\n <p>Voices of Hope contributed to this research through Dr. Amanda Weber’s 2018 dissertation. The survey and\ninterview data collected through Weber’s program evaluation showed the following:</p>\n <ul>\n <li>VOH singers described increased feelings of happiness, positivity, self-worth, accomplishment, and an\nimproved attitude\n </li>\n <li>Multiple singers believe their aggression has decreased; some singers feel they cry more often and have\nbecome more open with their feelings\n </li>\n <li>Many singers said they feel more open to trying new things and believe that choir has helped them to come\nout of their shell\n </li>\n <li>Several participants said they want to use their voices for good in the community</li>\n <li>The most commonly cited theme was connection; for many singers, choir has enabled a sense of bonding and\nincreased empathy in a diverse setting\n </li>\n </ul>',
         testimonialsTitle: 'TESTIMONIALS',
         testimonialsContentOne: '<h3 class="font-italic mb-1">Reflections from incarcerated singers</h3>\n <p>“I had forgotten how important music was to me, but Voices of Hope reminded me how much my spirit needs\nmusic, my soul needs to heal.”</p>\n <p>“I came into this experience and didn’t speak to anyone. I was of this mindset of I don’t see any potential\nfor anything good… Now I’m in this community and there’s something I’m looking forward to doing here. And it\ndoesn’t make me feel anxious or terrified or angry. The choir really allowed me to acknowledge that I could\nfeel happiness while I was incarcerated. And connectivity. I feel less prone to negative emotional\nupheaval.”</p>\n<p>"[Collaborating with outside singers] has forever impacted my life. To have people who know nothing about us\nbut who want to be a part of supporting us! It has given me the ability myself to look past my label as a\nfelon or prisoner."</p>\n<p class="mb-7">“[Through choir,] I was reunited with the girl I had lost somewhere along the broken road that\nbrought me here. The girl who sings in the shower, the one who lets music crawl into her heart sending shivers\nup and down her spine, the girl who allows music and voice to fill the vast emptiness inside of her with hope…\nWhat a blessing it is to be reunited to that forgotten part of myself.”</p>',
         testimonialsContentTwo: '<h3 class="font-italic mb-1">Reflections from outside collaborators</h3>\n<p>“My experiences singing with the Voices of Hope have had an immeasurable impact on my perspective of the\nworld and our nation’s system of incarceration…I got to know several of the women beyond their names and\ninterests and found their desire for redemption and a fresh start both heartbreaking and inspiring.”</p>\n <p>"I had many emotional conversations with people on the outside trying to describe my experience\n[collaborating with the Voices of Hope], and my empathetic response. How my heart broke for the women and how\ntheir paths had led them there, and how in some corner of myself I wished I could switch places with one of\nthem. I could feel their sadness and the joy in their singing… It is difficult to talk about the complexity of\n the experience. How pain and joy live in the same room in such an open way."</p>'
