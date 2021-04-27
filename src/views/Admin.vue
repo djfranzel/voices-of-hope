@@ -106,7 +106,23 @@ export default Vue.extend({
     vohContent: JSON.parse(sessionStorage.getItem('vohContent')),
     saving: false,
   }),
+  mounted: function () {
+    this.CheckSession();
+  },
   methods: {
+    CheckSession: function () {
+      const that = this;
+      axios.get('/check-session', {headers: {token: sessionStorage.getItem('token')}})
+          .then(response => {
+            if (response.data.token) {
+              that.showEditSections = true;
+            } else {
+              that.InvalidCredentials();
+            }
+          })
+          .catch(error => that.InvalidCredentials())
+          .finally(() => that.loading = false);
+    },
     Login: function () {
       if (!this.valid) return this.$refs.form.validate();
       const that = this;

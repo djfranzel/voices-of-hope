@@ -104,9 +104,19 @@ app.post('/post-message', async (req, res) => {
     res.status(200).send(response);
 })
 
+app.get('/check-session', (req, res) => {
+    if (authenticated(req.headers.token)) {
+        res.status(200).send({authenticated: true})
+    } else {
+        res.status(401).send({authenticated: false})
+    }
+})
+
 // redirect all other requests to index.html
 app.get('/*', (req, res) => res.sendFile(__dirname + '/dist/index.html'));
 
 function authenticated(token) {
+    console.log(token)
+    console.log(cache.get(username).token)
     return cache.get(username).token === token;
 }
