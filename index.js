@@ -32,10 +32,10 @@ app.listen(port, () => console.log(`Example app listening at http://localhost:${
 
 app.post('/authenticate', async (req, res) => {
     if (req.body.username === username && req.body.password === password) {
-        const uuid = uuid.v4();
-        cache.put(req.body.username, uuid, 1000 * 60 * 180);
+        const token = uuid.v4();
+        cache.put(req.body.username, token, 1000 * 60 * 180);
         res.status(200).send({
-            token: uuid,
+            token: token,
             message: 'Successfully authenticated!'
         })
     } else {
