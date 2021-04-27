@@ -1,5 +1,5 @@
 <template>
-  <v-app v-if="vohContent.general" v-cloak>
+  <v-app v-cloak>
     <v-navigation-drawer
         v-model="drawer"
         v-if="getMobile()"
@@ -117,18 +117,18 @@
       <v-container class="mb-0 pb-0">
         <router-view/>
       </v-container>
-      <v-footer v-if="vohContent.footer" outlined padless class="footer ma-0">
+      <v-footer v-if="vohContent.general" outlined padless class="footer ma-0">
         <v-container class="pa-0">
           <v-row class="pa-0 ma-1">
             <v-col lg="6" md="6" sm="12" cols="12">
-              <h3 class="mb-3">{{ vohContent.footer.leftTitle }}</h3>
-              <p class="mb-3"><span v-html="vohContent.footer.leftText"></span></p>
+              <h3 class="mb-3">{{ vohContent.general.footer.leftTitle }}</h3>
+              <p class="mb-3"><span v-html="vohContent.general.footer.leftText"></span></p>
               <v-btn @click="NavigateToUrl(vohContent.general.facebookLink)" icon>
                 <v-icon>mdi-facebook</v-icon>
               </v-btn>
             </v-col>
             <v-col lg="6" md="6" sm="12" cols="12" class="text-right">
-              <h3 class="mb-3">{{ vohContent.footer.rightTitle }}</h3>
+              <h3 class="mb-3">{{ vohContent.general.footer.rightTitle }}</h3>
               <div class="mb-1">
                 <div style="display: inline-block">
                   {{ vohContent.general.organizationName }}<br>
