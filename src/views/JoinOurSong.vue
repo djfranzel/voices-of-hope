@@ -5,7 +5,7 @@
     <v-row class="ma-7">
       <v-col>
         <h2 class="mb-3">{{ vohContent.joinOurSong.supportBlockTitle }}</h2>
-        {{ vohContent.joinOurSong.supportBlockContent }}
+        <span v-html="vohContent.joinOurSong.supportBlockContent"></span>
         <v-btn class="accent" @click="NavigateToUrl('https://www.givemn.org/story/Voicesofhope')">
           Donate
           <v-icon right>mdi-open-in-new</v-icon>
@@ -18,7 +18,7 @@
         <v-row>
           <v-col>
             <h2 class="mb-3">{{ vohContent.joinOurSong.singBlockTitle }}</h2>
-            {{ vohContent.joinOurSong.singBlockContent }}
+            <span v-html="vohContent.joinOurSong.singBlockContent"></span>
           </v-col>
           <v-col>
             <v-img src="../static/join_voices_of_hope.jpg" alt="Join Voices of Hope" max-height="500px" contain></v-img>
@@ -34,7 +34,7 @@
         <iframe height="300px" width="533px" src="https://www.youtube.com/embed/2H4qyOG13fc" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen style="float: right"></iframe>
-        {{ vohContent.joinOurSong.learnAdvocateContent }}
+        <span v-html="vohContent.joinOurSong.learnAdvocateContent"></span>
       </v-col>
     </v-row>
   </div>

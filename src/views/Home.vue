@@ -6,7 +6,7 @@
         <v-img src="../static/voh_banner.png" alt="Voices of Hope Banner" max-height="300px" contain></v-img>
         <div class="text-center" style="margin: 0 auto; max-width: 600px;">
           <h2 class="ma-5">
-            {{ vohContent.home.mainQuote }}
+            <span v-html="vohContent.home.mainQuote"></span>
           </h2>
         </div>
       </v-col>
@@ -32,10 +32,10 @@
     <v-row class="ma-7">
       <v-col class="text-center">
         <h3 class="mb-3">
-          {{ vohContent.home.testimonialBlockQuote }}
+          <span v-html="vohContent.home.testimonialBlockQuote"></span>
         </h3>
         <p><i>
-          {{ vohContent.home.testimonialBlockAuthor }}
+          <span v-html="vohContent.home.testimonialBlockAuthor"></span>
         </i></p>
       </v-col>
     </v-row>
@@ -59,7 +59,9 @@
         <v-img class="ml-auto" max-width="225px" src="../static/cea_text.png"></v-img>
       </v-col>
       <v-col cols="12" sm="12" md="6" lg="8" class="mt-3">
-        <p>{{ vohContent.home.collaborateBlockText }}</p>
+        <p>
+          <span v-html="vohContent.home.collaborateBlockText"></span>
+        </p>
         <v-btn @click="Navigate('WhoWeAre')" class="primary">
           Collaborate
           <v-icon right>mdi-arrow-right</v-icon>

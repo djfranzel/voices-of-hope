@@ -11,7 +11,7 @@
       </v-col>
       <v-col cols="12" sm="12" md="6" lg="10">
         <h2 class="mb-3">{{ vohContent.whoWeAre.aboutTitle }}</h2>
-        <p>{{ vohContent.whoWeAre.aboutText }}</p>
+        <p><span v-html="vohContent.whoWeAre.aboutText"></span></p>
       </v-col>
     </v-row>
 
@@ -20,7 +20,7 @@
     <v-row class="ma-7">
       <v-col>
         <h2 class="mb-3">{{ vohContent.whoWeAre.hopesBlockTitle }}</h2>
-        {{ vohContent.whoWeAre.hopesBlockContent }}
+        <span v-html="vohContent.whoWeAre.hopesBlockContent"></span>
       </v-col>
     </v-row>
 
@@ -31,7 +31,7 @@
         <h2 class="mb-3">{{ vohContent.whoWeAre.historyBlockTitle }}</h2>
         <v-img src="../static/amanda_front_of_group.jpg" style="float: right" max-width="100%" width="450px"
                class="ml-7 mb-7 elevation-5"></v-img>
-        {{ vohContent.whoWeAre.historyBlockContent }}
+        <span v-html="vohContent.whoWeAre.historyBlockContent"></span>
       </v-col>
     </v-row>
 
@@ -40,7 +40,7 @@
     <v-row class="ma-7">
       <v-col cols="12" sm="12" md="6" lg="6">
         <h2 class="mb-3">{{ vohContent.whoWeAre.choirsBlockTitle }}</h2>
-        {{ vohContent.whoWeAre.choirsBlockContent }}
+        <span v-html="vohContent.whoWeAre.choirsBlockContent"></span>
       </v-col>
       <v-col cols="12" sm="12" md="6" lg="4" class="ml-auto">
         <v-img class="elevation-5" src="../static/women_in_row.jpg"></v-img>
@@ -70,11 +70,11 @@
       <v-col lg="2" md="2" sm="0" cols="0"></v-col>
       <v-col lg="4" md="4" sm="12" cols="12">
         <h2 class="mb-3">{{ vohContent.whoWeAre.volunteerBlockTitle }}</h2>
-        {{ vohContent.whoWeAre.volunteerBlockContent }}
+        <span v-html="vohContent.whoWeAre.volunteerBlockContent"></span>
       </v-col>
       <v-col lg="4" md="4" sm="12" cols="12">
         <h2 class="mb-3">{{ vohContent.whoWeAre.advisoryTitle }}</h2>
-        {{ vohContent.whoWeAre.advisoryContent }}
+        <span v-html="vohContent.whoWeAre.advisoryContent"></span>
       </v-col>
       <v-col lg="2" md="2" sm="0" cols="0"></v-col>
     </v-row>
