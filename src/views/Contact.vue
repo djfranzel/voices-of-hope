@@ -6,22 +6,24 @@
     <v-row>
       <v-col lg="6" md="6" sm="12" cols="12">
 
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2822.6425945019528!2d-93.27821073408852!3d44.971255729098274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b332be0570719f%3A0xc70ecff93fa30d47!2s1200%20S%20Marquette%20Ave%2C%20Minneapolis%2C%20MN%2055403!5e0!3m2!1sen!2sus!4v1618511143781!5m2!1sen!2sus"
-                width="100%"
-                height="350"
-                style="border:0;"
-                class="pr-3 mb-5"
-                allowfullscreen=""
-                loading="lazy"></iframe>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2822.6425945019528!2d-93.27821073408852!3d44.971255729098274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b332be0570719f%3A0xc70ecff93fa30d47!2s1200%20S%20Marquette%20Ave%2C%20Minneapolis%2C%20MN%2055403!5e0!3m2!1sen!2sus!4v1618511143781!5m2!1sen!2sus"
+            width="100%"
+            height="350"
+            style="border:0;"
+            class="pr-3 mb-5"
+            allowfullscreen=""
+            loading="lazy"></iframe>
 
         <h4>Address:</h4>
         <p>
-          Voices of Hope<br>
-          1200 S Marquette Ave<br>
-          Minneapolis, MN 55403
+          {{ vohContent.general.organizationName }}<br>
+          {{ vohContent.general.address.street }}<br>
+          {{ vohContent.general.address.city }}, {{ vohContent.general.address.state }}
+          {{ vohContent.general.address.zipCode }}
         </p>
         <h4>Email:</h4>
-        <p><a href="mailto:wearevoicesofhope@gmail.com">wearevoicesofhope@gmail.com</a></p>
+        <p><a :href="'mailto:' + vohContent.general.email">vohContent.general.email</a></p>
       </v-col>
       <v-col lg="6" md="6" sm="12" cols="12">
         <h2 class="mb-3">Subscribe to Our Newsletter!</h2>
@@ -147,7 +149,7 @@ export default Vue.extend({
     }
   }),
   methods: {
-    SetFormToDefaults () {
+    SetFormToDefaults() {
       this.form = {
         fullName: '',
         email: '',
