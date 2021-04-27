@@ -5,7 +5,7 @@
       <v-col cols="auto">
         <h1 class="page-title">Admin</h1>
       </v-col>
-      <v-col cols="auto" class="ml-auto">
+      <v-col v-if="sessionStorage.getItem('token')" cols="auto" class="ml-auto">
         <v-btn @click="Logout()">
           <v-icon left>mdi-logout</v-icon>
           Logout
@@ -47,6 +47,10 @@
           </v-card-actions>
           <v-spacer class="pb-1"></v-spacer>
         </v-form>
+        <br>
+        <br>
+        <br>
+        <br>
       </v-col>
       <v-col cols="0" sm="0" md="3" lg="3"></v-col>
     </v-row>
@@ -256,6 +260,7 @@
 <script lang="js">
 import Vue from 'vue';
 import axios from "axios";
+import {EventBus} from "../event-bus";
 
 export default Vue.extend({
   name: 'Admin',
@@ -383,7 +388,10 @@ export default Vue.extend({
               console.log('Invalid token')
             }
           })
-          .catch(error => console.log('Invalid token'))
+          .catch(error => {
+            console.log('Invalid token')
+            sessionStorage.removeItem('token')
+          })
           .finally(() => that.loading = false);
     },
     Login: function () {
@@ -420,13 +428,18 @@ export default Vue.extend({
       this.saving = true;
       this.vohContent = JSON.parse(JSON.stringify(this.vohContentTemp));
       axios.post('/post-voh-content', that.vohContent, {headers: {token: sessionStorage.getItem('token')}})
-          .then(response => that.vohContent = response.data)
+          .then(response => {
+            that.vohContent = response.data;
+            EventBus.$emit('snackbar', true, 'success', 'Updated!');
+            sessionStorage.setItem('vohContent', JSON.stringify(that.vohContent));
+          })
           .catch(error => alert('Error saving content!'))
           .finally(() => that.saving = false);
     },
     InvalidCredentials: function () {
       this.credentials.password = '';
       this.$refs.form.validate();
+      sessionStorage.removeItem('token')
       alert('Incorrect password!');
     },
     Logout: function () {
