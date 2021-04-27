@@ -118,6 +118,6 @@ app.get('/*', (req, res) => res.sendFile(__dirname + '/dist/index.html'));
 
 function authenticated(token) {
     console.log(token)
-    console.log(cache.get(username).token)
-    return cache.get(username).token === token;
+    console.log(cache.get(username))
+    return cache.get(username) === token;
 }
