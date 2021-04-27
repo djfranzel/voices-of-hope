@@ -85,7 +85,7 @@ app.get('/get-voh-content', async (req, res) => {
         console.log(error);
         res.status(500).send(error);
     });
-    res.status(200).send(response);
+    res.status(200).send(response.Item);
 })
 
 app.post('/post-message', async (req, res) => {
