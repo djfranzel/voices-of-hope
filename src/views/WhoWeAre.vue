@@ -1,5 +1,5 @@
 <template>
-  <div v-if="vohContent.general" class="page-container">
+  <div v-if="vohContent && vohContent.general" class="page-container">
 
     <h1 class="page-title text-center">{{ vohContent.whoWeAre.pageTitle }}</h1>
 

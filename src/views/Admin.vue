@@ -1,5 +1,5 @@
 <template>
-  <div v-if="vohContent.general" class="page-container">
+  <div v-if="vohContent && vohContent.general" class="page-container">
 
     <v-row>
       <v-col cols="auto">
