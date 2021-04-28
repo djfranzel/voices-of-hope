@@ -42,15 +42,15 @@
 
 <script lang="js">
 import Vue from 'vue';
+import {EventBus} from "../event-bus";
 
 export default Vue.extend({
   name: 'WhyWeSing',
   data: () => ({
     vohContent: JSON.parse(sessionStorage.getItem('vohContent'))
-
   }),
   created: function () {
-
+    EventBus.$on('vohContent', () => this.vohContent = JSON.parse(sessionStorage.getItem('vohContent')));
   },
   methods: {
     NavigateToUrl: function (link) {

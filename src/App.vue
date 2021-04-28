@@ -192,11 +192,13 @@ export default {
   },
   methods: {
     GetVOHContent: function () {
+      sessionStorage.removeItem('vohContent');
       const that = this;
       axios.get('/get-voh-content')
           .then(response => {
             that.vohContent = response.data;
             sessionStorage.setItem('vohContent', JSON.stringify(that.vohContent));
+            EventBus.$emit('vohContent');
           })
           .catch(error => alert('Could not get content!'))
           .finally(() => that.loading = false);

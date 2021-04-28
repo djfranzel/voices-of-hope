@@ -148,6 +148,9 @@ export default Vue.extend({
       howDidYouHearAboutUs: ''
     }
   }),
+  created: function () {
+    EventBus.$on('vohContent', () => this.vohContent = JSON.parse(sessionStorage.getItem('vohContent')));
+  },
   methods: {
     SetFormToDefaults() {
       this.form = {

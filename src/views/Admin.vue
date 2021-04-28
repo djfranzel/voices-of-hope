@@ -375,6 +375,7 @@ export default Vue.extend({
   }),
   mounted: function () {
     this.CheckSession();
+    EventBus.$on('vohContent', () => this.vohContent = JSON.parse(sessionStorage.getItem('vohContent')));
   },
   methods: {
     CheckSession: function () {
