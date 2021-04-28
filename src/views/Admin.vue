@@ -129,6 +129,9 @@
                   </v-row>
                 </template>
               </v-data-table>
+              <br>
+              <br>
+              <br>
             </v-tab-item>
             <v-tab-item key="General">
               <v-text-field
