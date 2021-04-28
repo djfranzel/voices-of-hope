@@ -449,7 +449,6 @@ export default Vue.extend({
       this.vohContent = JSON.parse(sessionStorage.getItem('vohContent'));
       this.CheckSession();
     });
-    this.GetSubscriptions();
   },
   methods: {
     GetSubscriptions: function () {
@@ -487,6 +486,7 @@ export default Vue.extend({
               sessionStorage.setItem('token', response.data.token);
               that.showEditSections = true;
               that.GetVOHContent();
+              that.GetSubscriptions();
             } else {
               that.InvalidCredentials()
             }
