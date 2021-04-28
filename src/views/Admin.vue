@@ -92,7 +92,10 @@
                 <template v-slot:item.address="{ item }">
                   <span v-html="item.address.street + '<br>' + item.address.city + ', ' + item.address.state + ' ' + item.address.zipCode"></span>
                 </template>
-                <template v-slot:item.dateSubmitted="{ item }">
+                <template v-slot:item.phoneNumber="{ item }">
+                  {{ formatPhoneNumber(item.phoneNumber) }}
+                </template>
+                <template v-slot:item.epoch_dateSubmitted="{ item }">
                   {{ moment(item.dateSubmitted).format('MM/DD/YYYY HH:mm:ss') }}
                 </template>
                 <template v-slot:top>
@@ -295,7 +298,7 @@
         </v-col>
       </v-row>
       <v-divider></v-divider>
-      <v-row>
+      <v-row v-if="tab !== 'Subscriptions'">
         <v-col>
           <v-btn block
                  class="mb-7 mt-7"
@@ -435,7 +438,7 @@ export default Vue.extend({
       {text: 'Full Name', value: 'fullName', sortable: true},
       {text: 'Email', value: 'email', sortable: true},
       {text: 'Phone Number', value: 'phoneNumber', sortable: true},
-      {text: 'Address', value: 'address', sortable: true},
+      {text: 'Address', value: 'address', sortable: false},
       {text: 'How Did You Hear About Us', value: 'howDidYouHearAboutUs', sortable: true},
       {text: 'Date Submitted', value: 'epoch_dateSubmitted', sortable: true},
     ]
@@ -526,6 +529,11 @@ export default Vue.extend({
       const that = this;
       axios.post('/logout', {})
           .finally(() => that.$router.push({name: 'Home'}));
+    },
+    formatPhoneNumber: function (phone) {
+      const cleaned = ('' + phone).replace(/\D/g, '');
+      const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+      return match ? '(' + match[1] + ') ' + match[2] + '-' + match[3] : phone;
     }
   }
 });
