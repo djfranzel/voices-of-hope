@@ -298,7 +298,7 @@
         </v-col>
       </v-row>
       <v-divider></v-divider>
-      <v-row v-if="tab !== 'Subscriptions'">
+      <v-row v-if="tab !== 0">
         <v-col>
           <v-btn block
                  class="mb-7 mt-7"
@@ -443,11 +443,6 @@ export default Vue.extend({
       {text: 'Date Submitted', value: 'epoch_dateSubmitted', sortable: true},
     ]
   }),
-  watch: {
-    tab: function () {
-      console.log(this.tab)
-    }
-  },
   mounted: function () {
     this.CheckSession();
     EventBus.$on('vohContent', () => {
