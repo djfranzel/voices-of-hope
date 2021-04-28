@@ -61,6 +61,7 @@
           <v-tabs v-model="tab"
                   background-color="transparent"
                   color="blue" grow>
+            <v-tab key="Subscriptions">Subscriptions</v-tab>
             <v-tab key="General">General</v-tab>
             <v-tab key="Home">Home</v-tab>
             <v-tab key="Who We Are">Who We Are</v-tab>
@@ -72,6 +73,60 @@
           <br>
 
           <v-tabs-items v-model="tab">
+            <v-tab-item key="Subscriptions">
+              <v-data-table
+                  sort-by="epoch_dateSubmitted"
+                  :sort-desc="true"
+                  :headers="subscriptionsHeaders"
+                  :items="subscriptions"
+                  :search="search"
+                  item-key="id"
+                  :loading="loading"
+                  :items-per-page="15"
+                  :footer-props="{
+                      showFirstLastPage: true,
+                      firstIcon: 'mdi-arrow-collapse-left',
+                      lastIcon: 'mdi-arrow-collapse-right'
+                    }"
+                  class="elevation-3">
+                <template v-slot:item.address="{ item }">
+                  <span v-html="item.address.street + '<br>' + item.address.city + ', ' + item.address.state + ' ' + item.address.zipCode"></span>
+                </template>
+                <template v-slot:item.dateSubmitted="{ item }">
+                  {{ moment(item.dateSubmitted).format('MM/DD/YYYY HH:mm:ss') }}
+                </template>
+                <template v-slot:top>
+                  <v-row class="pl-5 pr-5">
+                    <v-col cols="auto" class="mr-auto">
+                      <h2>Subscriptions</h2>
+                    </v-col>
+                    <v-col cols="auto">
+                      <v-text-field
+                          class="mr-4"
+                          style="display: inline-flex"
+                          v-model="search"
+                          v-on:keyup.esc="search = ''"
+                          prepend-icon="mdi-magnify"
+                          label="Search Subscriptions">
+                        <v-icon v-if="search.length" @click="search = ''" slot="append">mdi-close</v-icon>
+                        <v-icon v-else slot="append" color="transparent">mdi-close</v-icon>
+                      </v-text-field>
+                      <v-tooltip bottom>
+                        <template v-slot:activator="{ on, attrs }">
+                          <v-icon v-bind="attrs"
+                                  v-on="on"
+                                  @click="GetSubscriptions()"
+                                  :loading="loading">
+                            mdi-refresh
+                          </v-icon>
+                        </template>
+                        <span>Refresh Data</span>
+                      </v-tooltip>
+                    </v-col>
+                  </v-row>
+                </template>
+              </v-data-table>
+            </v-tab-item>
             <v-tab-item key="General">
               <v-text-field
                   v-model="vohContentTemp.general.organizationName"
@@ -261,10 +316,12 @@
 import Vue from 'vue';
 import axios from "axios";
 import {EventBus} from "../event-bus";
+const moment = require('moment');
 
 export default Vue.extend({
   name: 'Admin',
   data: () => ({
+    moment: moment,
     tab: 'General',
     showEditSections: false,
     loading: false,
@@ -372,6 +429,16 @@ export default Vue.extend({
     },
     vohContent: JSON.parse(sessionStorage.getItem('vohContent')),
     saving: false,
+    subscriptions: [],
+    search: '',
+    subscriptionsHeaders: [
+      {text: 'Full Name', value: 'fullName', sortable: true},
+      {text: 'Email', value: 'email', sortable: true},
+      {text: 'Phone Number', value: 'phoneNumber', sortable: true},
+      {text: 'Address', value: 'address', sortable: true},
+      {text: 'How Did You Hear About Us', value: 'howDidYouHearAboutUs', sortable: true},
+      {text: 'Date Submitted', value: 'epoch_dateSubmitted', sortable: true},
+    ]
   }),
   mounted: function () {
     this.CheckSession();
@@ -379,8 +446,17 @@ export default Vue.extend({
       this.vohContent = JSON.parse(sessionStorage.getItem('vohContent'));
       this.CheckSession();
     });
+    this.GetSubscriptions();
   },
   methods: {
+    GetSubscriptions: function () {
+      this.loading = true;
+      const that = this;
+      axios.get('/get-subscribers', {headers: {token: sessionStorage.getItem('token')}})
+          .then(response => that.subscriptions = response.data)
+          .catch(error => alert('Could not get subscribers!'))
+          .finally(() => that.loading = false);
+    },
     CheckSession: function () {
       const that = this;
       axios.get('/check-session', {headers: {token: sessionStorage.getItem('token')}})

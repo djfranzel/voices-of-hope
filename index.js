@@ -76,6 +76,7 @@ app.get('/get-subscribers', async (req, res) => {
             console.log(error);
             res.status(500).send(error)
         });
+        for (let item of response.Items) item.epoch_dateSubmitted = new Date(item.dateSubmitted).getTime();
         res.status(200).send(response.Items);
     } else {
         res.status(500).send('Not authorized!');
