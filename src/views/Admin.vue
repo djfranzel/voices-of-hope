@@ -443,6 +443,11 @@ export default Vue.extend({
       {text: 'Date Submitted', value: 'epoch_dateSubmitted', sortable: true},
     ]
   }),
+  watch: {
+    tab: function () {
+      console.log(this.tab)
+    }
+  },
   mounted: function () {
     this.CheckSession();
     EventBus.$on('vohContent', () => {
