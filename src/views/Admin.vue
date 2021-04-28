@@ -96,7 +96,7 @@
                   {{ formatPhoneNumber(item.phoneNumber) }}
                 </template>
                 <template v-slot:item.epoch_dateSubmitted="{ item }">
-                  {{ moment(item.dateSubmitted).format('MM/DD/YYYY HH:mm:ss') }}
+                  {{ moment(item.dateSubmitted).format('MM/DD/YYYY HH:mm A') }}
                 </template>
                 <template v-slot:top>
                   <v-row class="pl-5 pr-5">
@@ -465,7 +465,8 @@ export default Vue.extend({
           .then(response => {
             if (response.data.authenticated) {
               that.showEditSections = true;
-              that.vohContentTemp = JSON.parse(JSON.stringify(that.vohContent));
+              that.GetVOHContent();
+              that.GetSubscriptions();
             } else {
               console.log('Invalid token')
             }
